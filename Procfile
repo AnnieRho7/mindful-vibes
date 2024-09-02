@@ -1,0 +1,1 @@
+web: gunicorn mindful_vibes.wsgi
