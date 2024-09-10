@@ -1,6 +1,55 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
+{% load static %}
 {% block content %}
-  <h1>{{ user_profile.user.username }}'s Profile</h1>
-  <p>{{ user_profile.bio }}</p>
+<div class="profile-box contain forms-view">
+    <h1 class="lead-text my-5 mx-5">User Profile</h1>
+    <div class="row my-5 justify-content-evenly">
+        <div class="profile-info col-md-4 my-5">
+            <div class="card m-1 p-3">
+                <div class="media mx-auto my-3">
+                    {% if user.userprofile.profile_image %}
+                    <img src="{{ user.userprofile.profile_image.url }}" alt="user-image" class="rounded-circle user-img">
+                    {% else %}
+                    <img src="{% static 'images/usr_img.png' %}" alt="user-image" class="rounded-circle user-img">
+                    {% endif %}
+                </div>
+                <p class="m-0 profile-txt"><strong>First name:</strong> {{ user.first_name|title }}</p>
+                <p class="m-0 profile-txt"><strong>Last name:</strong> {{ user.last_name|title }}</p>
+                <p class="m-0 profile-txt"><strong>Email:</strong> {{ user.email }}</p>
+                <p class="m-0 profile-txt"><strong>Username:</strong> {{ user.username }}</p>
+                <p class="m-0 profile-txt"><strong>Bio:</strong> {{ user.userprofile.bio }}</p>
+            </div>
+        </div>
+        <div class="profile-form col-md-5">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ user_form|crispy }}
+                {{ profile_form|crispy }}
+                <p class="py-4">If you wish to reset your password <a class="button secondaryAction" href="{% url 'account_reset_password' %}"> <strong class="hover-txt"> click here!</strong></a></p>
+                <button type="submit" name="update" class="my-4 mx-3 btn btn-primary">Update</button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Delete
+                </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content form-box">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete your account</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to delete your account?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" name="delete" class="my-4 mx-3 btn btn-danger">Delete Account</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
