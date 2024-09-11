@@ -30,3 +30,10 @@ def user_profile(request):
         'user_form': user_form,
         'profile_form': profile_form
     })
+    
+
+def password_reset_view(request):
+    # Logic for password reset
+    if reset_successful:
+        messages.success(request, "An email has been sent with instructions to reset your password.")
+        return redirect('password_reset_done')

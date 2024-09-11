@@ -159,3 +159,49 @@ body {
 .approval {
     color: rgb(222, 146, 168);
 }
+
+.password_reset input[type="submit"] {
+    background-color: #188181;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.password_reset input[type="submit"]:hover,
+.password_reset input[type="submit"]:active {
+    background-color: #fff;
+    color: #23BBBB;
+}
+
+.password_reset h3 {
+    color: #4A4A4F;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.password_reset p {
+    color: #4A4A4F;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.col-md-8 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
