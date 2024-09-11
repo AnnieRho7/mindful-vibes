@@ -15,7 +15,7 @@ class UserForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['bio', 'profile_image']  # Assuming profile_image is a field in UserProfile
+        fields = ['bio', 'profile_image']
         widgets = {
             'bio': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
             'profile_image': forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
