@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.http import HttpResponseForbidden
 from .forms import UserForm, ProfileForm
 from .models import UserProfile
 
@@ -33,7 +34,24 @@ def user_profile(request):
     
 
 def password_reset_view(request):
-    # Logic for password reset
+    # Implement the password reset logic here
+    # You might use Django’s built-in password reset views
+    reset_successful = False  # Update this based on your actual password reset logic
     if reset_successful:
         messages.success(request, "An email has been sent with instructions to reset your password.")
         return redirect('password_reset_done')
+    else:
+        messages.error(request, "Password reset failed. Please try again.")
+    return render(request, 'password_reset.html')  # Or whatever template you're using for this view
+
+@login_required
+def delete_account(request):
+    if request.method == 'POST':
+        user = request.user
+        # Delete the associated UserProfile if it exists
+        UserProfile.objects.filter(user=user).delete()
+        user.delete()
+        messages.success(request, 'Your account has been deleted successfully.')
+        return redirect('home')  # Redirect to a page after account deletion (e.g., home or login page)
+    else:
+        return HttpResponseForbidden("You are not allowed to access this page.")
