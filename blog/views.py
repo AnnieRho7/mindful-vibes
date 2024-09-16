@@ -7,14 +7,14 @@ from .forms import CommentForm
 
 # Create your views here.
 class PostList(generic.ListView):
-    queryset = Post.objects.filter(status=1)
+    model = Post
+    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    template_name = 'blog/blog_list.html'
     paginate_by = 6
 
-    def get_template_names(self):
-        if self.request.path == '/':
-            return ["index.html"]
-        else:
-            return ["blog/blog_list.html"]
+def home(request):
+    featured_posts = Post.objects.filter(status=1, featured=True)[:3]
+    return render(request, 'index.html', {'featured_posts': featured_posts})
     
     
 def post_detail(request, slug):
@@ -98,3 +98,11 @@ def comment_delete(request, slug, comment_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+def subscribe(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        # Here you would typically save the email to your mailing list
+        # For now, we'll just add a success message
+        messages.success(request, f'Thank you for subscribing with {email}!')
+    return redirect('home')
