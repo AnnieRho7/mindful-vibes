@@ -8,8 +8,13 @@ from .forms import CommentForm
 # Create your views here.
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
-    template_name = "index.html"
     paginate_by = 6
+
+    def get_template_names(self):
+        if self.request.path == '/':
+            return ["index.html"]
+        else:
+            return ["blog/blog_list.html"]
     
     
 def post_detail(request, slug):
