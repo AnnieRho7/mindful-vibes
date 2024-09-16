@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm
+from .models import Subscriber
 
 # Create your views here.
 
@@ -102,7 +103,13 @@ def comment_delete(request, slug, comment_id):
 def subscribe(request):
     if request.method == 'POST':
         email = request.POST.get('email')
-        # Here you would typically save the email to your mailing list
-        # For now, we'll just add a success message
-        messages.success(request, f'Thank you for subscribing with {email}!')
+        if email:
+            if not Subscriber.objects.filter(email=email).exists():
+                Subscriber.objects.create(email=email)
+                messages.success(request, 'Thank you for subscribing!')
+                return render(request, 'subscribe_success.html')
+            else:
+                messages.info(request, 'You are already subscribed.')
+        else:
+            messages.error(request, 'Please provide a valid email address.')
     return redirect('home')

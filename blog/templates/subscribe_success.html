@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <section class="subscription-success-section py-5 main-bg">
+        <div class="container text-center">
+            <h1 class="mb-4 brand">Thank You for Subscribing!</h1>
+            <p class="mb-4">You have been successfully subscribed to our newsletter.</p>
+            <a href="{% url 'home' %}" class="btn btn-signup">Return to Home</a>
+        </div>
+    </section>
+
+{% endblock %}

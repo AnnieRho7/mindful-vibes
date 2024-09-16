@@ -23,7 +23,8 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h5 class="card-title">{{ post.title }}</h5>
-                            <p class="card-text">{{ post.excerpt }}</p> <!-- Ensure 'excerpt' exists or replace with a suitable field -->
+                            <p class="card-text">{{ post.excerpt }}</p>
+                            <!-- Ensure 'excerpt' exists or replace with a suitable field -->
                             <a href="{% url 'post_detail' post.slug %}" class="btn btn-outline-primary">Read More</a>
                         </div>
                     </div>
@@ -36,7 +37,7 @@
             </div>
         </div>
     </section>
-    
+
 
     <!-- Subscribe Section -->
     <section class="subscribe-section py-5 bg-light">
@@ -47,7 +48,8 @@
                     <form action="{% url 'subscribe' %}" method="post" class="form-inline justify-content-center">
                         {% csrf_token %}
                         <div class="input-group mb-2 mr-sm-2">
-                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                            <input type="email" name="email" class="form-control" placeholder="Enter your email"
+                                required>
                             <div class="input-group-append">
                                 <button type="submit" class="btn btn-primary">Subscribe</button>
                             </div>
