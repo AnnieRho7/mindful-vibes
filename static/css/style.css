@@ -205,3 +205,32 @@ body {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.hero-section {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay effect */
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2; /* Ensures text is on top of the image */
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px; /* Adds some padding around the text for better readability */
+    border-radius: 8px;
+}
+
+.hero-section h1, 
+.hero-section p {
+    color: white;
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8); /* Improved text shadow for better contrast */
+    font-weight: bold; /* Optional: makes the text bold */
+}
+
+.hero-section a.btn {
+    margin-top: 20px;
+}
+

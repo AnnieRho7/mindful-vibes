@@ -6,6 +6,7 @@ from .models import Post, Comment
 from .forms import CommentForm
 
 # Create your views here.
+
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
@@ -13,10 +14,10 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 def home(request):
-    featured_posts = Post.objects.filter(status=1, featured=True)[:3]
+    # Fetch featured posts using the class method
+    featured_posts = Post.get_featured_posts()
     return render(request, 'index.html', {'featured_posts': featured_posts})
-    
-    
+
 def post_detail(request, slug):
     """
     Display an individual :model:`blog.Post`.
@@ -26,7 +27,7 @@ def post_detail(request, slug):
     ``post``
         An instance of :model:`blog.Post`.
 
-    **Template:**
+    **Template:** 
 
     :template:`blog/post_detail.html`
     """
@@ -63,10 +64,9 @@ def post_detail(request, slug):
 
 def comment_edit(request, slug, comment_id):
     """
-    view to edit comments
+    View to edit comments
     """
     if request.method == "POST":
-
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comment = get_object_or_404(Comment, pk=comment_id)
@@ -85,7 +85,7 @@ def comment_edit(request, slug, comment_id):
 
 def comment_delete(request, slug, comment_id):
     """
-    view to delete comment
+    View to delete comment
     """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
