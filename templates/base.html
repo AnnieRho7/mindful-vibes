@@ -87,8 +87,12 @@
                     {% endif %}
 
                 </ul>
-                <span class="navbar-text text-muted">
-                    Wellness Hub
+                <span class="navbar-text ms-auto">
+                    {% if user.is_authenticated %}
+                    You are logged in as {{ user.username }}
+                    {% else %}
+                    You are not logged in
+                    {% endif %}
                 </span>
             </div>
         </div>
@@ -109,11 +113,6 @@
     </div>
 
     <main class="flex-shrink-0 main-bg">
-        {% if user.is_authenticated %}
-        <p class="text-end m-3">You are logged in as {{ user.username }}</p>
-        {% else %}
-        <p class="text-end m-3">You are not logged in</p>
-        {% endif %}
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}

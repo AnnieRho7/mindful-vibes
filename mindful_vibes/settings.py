@@ -3,8 +3,8 @@ from decouple import config
 import os
 import dj_database_url
 
-if os.path.isfile('env.py'):
-    import env
+# if os.path.isfile("env.py"):
+#     import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -12,6 +12,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 # Security settings
 SECRET_KEY = config('SECRET_KEY')
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 ALLOWED_HOSTS = ['8000-annierho7-mindfulvibes-2iahnkmpya6.ws.codeinstitute-ide.net', '.herokuapp.com']
 
