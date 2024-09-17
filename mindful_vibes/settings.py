@@ -13,7 +13,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # Security settings
 SECRET_KEY = config('SECRET_KEY')
 # SECRET_KEY = os.environ.get('SECRET_KEY')
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['8000-annierho7-mindfulvibes-2iahnkmpya6.ws.codeinstitute-ide.net', '.herokuapp.com']
 
 # Application definition
@@ -77,8 +77,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mindful_vibes.wsgi.application'
 
 # Database
+# DATABASES = {
+#     'default': dj_database_url.parse(config('DATABASE_URL'))
+# }
 DATABASES = {
-    'default': dj_database_url.parse(config('DATABASE_URL'))
+    'default': dj_database_url.parse(config('DATABASE_URL', default='postgres://localhost'))
 }
 
 CSRF_TRUSTED_ORIGINS = [
@@ -109,6 +112,25 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {'class': 'logging.StreamHandler'},
+#     },
+#     'root': {
+#         'handlers': ['console'],
+#         'level': 'INFO',
+#     },
+#     'loggers': {
+#         'user_profile.views': {
+#             'handlers': ['console'],
+#             'level': 'INFO',
+#             'propagate': False,
+#         },
+#     },
+# }
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -120,6 +142,11 @@ LOGGING = {
         'level': 'INFO',
     },
     'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
         'user_profile.views': {
             'handlers': ['console'],
             'level': 'INFO',
@@ -147,14 +174,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Set a valid DEFAULT_FROM_EMAIL address
 # DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 
-if 'DEVELOPMENT' in os.environ:
+# Email settings
+if config('DEVELOPMENT', default=False, cast=bool):
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
+    DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='webmaster@localhost')
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
     EMAIL_PORT = 587
     EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
-    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER')
