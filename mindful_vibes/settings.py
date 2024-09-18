@@ -1,6 +1,7 @@
+
+import os
 from pathlib import Path
 from decouple import config
-import os
 import dj_database_url
 
 # if os.path.isfile("env.py"):
@@ -13,7 +14,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # Security settings
 SECRET_KEY = config('SECRET_KEY')
 # SECRET_KEY = os.environ.get('SECRET_KEY')
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['8000-annierho7-mindfulvibes-2iahnkmpya6.ws.codeinstitute-ide.net', '.herokuapp.com']
 
 # Application definition
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'mindful_vibes.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR, os.path.join(BASE_DIR, 'templates', 'account')],
+        'DIRS': [TEMPLATES_DIR, os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -147,14 +148,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Set a valid DEFAULT_FROM_EMAIL address
 # DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 
-if 'DEVELOPMENT' in os.environ:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
-else:
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_USE_TLS = True
-    EMAIL_PORT = 587
-    EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
-    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+
+EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool, default=True)
+EMAIL_PORT = config('EMAIL_PORT', cast=int, default=587)
+EMAIL_HOST = config('EMAIL_HOST', default='smtp.gmail.com')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default=config('EMAIL_HOST_USER'))
+  
