@@ -6,43 +6,40 @@
 
 <div class="container mt-5">
     <div class="row">
-        <div class="col-4 text-center">
-            <img src="{% static 'images/aboutimg.jpg' %}" width="75%">
+        <!-- Responsive Image Column -->
+        <div class="col-md-4 text-center">
+            <img src="{% static 'images/aboutimg.jpg' %}" class="img-fluid" alt="About Image">
         </div>
-        <div class="col-8">
+        <!-- Text Column -->
+        <div class="col-md-8">
             <h2>{{ about.title }}</h2>
             {{ about.content | safe }}
         </div>
     </div>
-    <div class="row">
-        <div class="col text-right">
-            <!-- Updated on field goes in here -->
-
+    
+    <div class="row mt-4">
+        <div class="col text-end">
             <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-6 my-5">
-                <h2>Let's collaborate!</h2>
-                <p>At Mindful Vibes, We believe in the power of shared knowledge and working together to create
-                    meaningful content that inspires. Whether you're passionate about mental health, wellness,
-                    mindfulness, or self-care, We'd love to connect! If you have a project in mind, want to collaborate
-                    on an article, or simply want to share ideas, drop me a message—let’s get in touch and see what we
-                    can create together.
+    </div>
+    
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-8 col-lg-6">
+            <h2>Let's collaborate!</h2>
+            <p>At Mindful Vibes, we believe in the power of shared knowledge and working together to create meaningful content that inspires. Whether you're passionate about mental health, wellness, mindfulness, or self-care, we'd love to connect! If you have a project in mind, want to collaborate on an article, or simply want to share ideas, drop me a message—let’s get in touch and see what we can create together.</p>
 
-                    <hr>
+            <hr>
 
-                    Fill out the form below, and let’s start the conversation!
-                </p>
+            <p>Fill out the form below, and let’s start the conversation!</p>
 
-                <!-- add your form here. Your submit button should 
-                                    have the classes of btn, btn-secondary -->
-
-                <form method="post">
-                    {{ collaborate_form | crispy }}
-                    {% csrf_token %}
-                    <button class="btn btn-secondary" type="submit">Submit</button>
-                </form>
-            </div>
+            <!-- Collaboration Form -->
+            <form method="post">
+                {{ collaborate_form | crispy }}
+                {% csrf_token %}
+                <button class="btn btn-secondary" type="submit">Submit</button>
+            </form>
         </div>
     </div>
-    {% endblock content %}
+</div>
+
+{% endblock content %}

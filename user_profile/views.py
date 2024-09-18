@@ -7,6 +7,33 @@ from .forms import UserForm, ProfileForm
 from .models import UserProfile
 
 
+# @login_required
+# def user_profile(request):
+#     user = request.user
+
+#     # Ensure the UserProfile exists
+#     user_profile, created = UserProfile.objects.get_or_create(user=user)
+
+#     if request.method == 'POST':
+#         user_form = UserForm(request.POST, instance=user)
+#         profile_form = ProfileForm(request.POST, request.FILES, instance=user_profile)
+
+#         if user_form.is_valid() and profile_form.is_valid():
+#             user_form.save()
+#             profile_form.save()
+#             messages.success(request, 'Your profile has been updated successfully!')
+#             return redirect('user_profile')
+#         else:
+#             messages.error(request, 'Please correct the errors below.')
+#     else:
+#         user_form = UserForm(instance=user)
+#         profile_form = ProfileForm(instance=user_profile)
+
+#     return render(request, 'user_profile/user_profile.html', {
+#         'user_form': user_form,
+#         'profile_form': profile_form
+#     })
+
 @login_required
 def user_profile(request):
     user = request.user
@@ -35,52 +62,8 @@ def user_profile(request):
     })
     
 
-# def password_reset_view(request):
-#     if request.method == 'POST':
-#         email = request.POST.get('email')
-#         form = PasswordResetForm({'email': email})
-        
-#         if form.is_valid():
-#             user = User.objects.filter(email=email).first()
-#             if user:
-#                 # Generate the token
-#                 token = default_token_generator.make_token(user)
-#                 uid = urlsafe_base64_encode(force_bytes(user.pk))
-#                 current_site = get_current_site(request)
-
-#                 # Email context
-#                 email_subject = 'Password Reset Requested'
-#                 email_body = render_to_string('password_reset_email.html', {
-#                     'user': user,
-#                     'domain': current_site.domain,
-#                     'uid': uid,
-#                     'token': token,
-#                     'protocol': 'https' if request.is_secure() else 'http',
-#                 })
-
-#                 # Send email
-#                 send_mail(
-#                     email_subject,
-#                     email_body,
-#                     settings.DEFAULT_FROM_EMAIL,
-#                     [email],
-#                     fail_silently=False,
-#                 )
-
-#                 messages.success(request, "An email has been sent with instructions to reset your password.")
-#                 return redirect('password_reset_done')
-
-#             else:
-#                 messages.error(request, "No user is associated with this email address.")
-#         else:
-#             messages.error(request, "Invalid email address. Please try again.")
-#     else:
-#         form = PasswordResetForm()
-
-#     return render(request, 'password_reset.html', {'form': form})
-
-def password_reset_done_view(request):
-    return render(request, 'templates/index.html', {})
+# def password_reset_done_view(request):
+#     return render(request, 'templates/index.html', {})
 
 @login_required
 def delete_account(request):
