@@ -197,7 +197,7 @@ body {
 /* Hero Section */
 .hero-section {
     position: relative;
-    height: 60vh;
+    height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -330,7 +330,14 @@ body {
 
 /* User Profile Page */
 .profile-box {
-    padding: 2rem;
+    padding: 1rem;
+    margin-top: 0;
+}
+
+.profile-box h1 {
+    margin-top: 0; /* Remove any top margin to align with content */
+    margin-bottom: 1rem; /* Adjust bottom margin to match profile content spacing */
+    text-align: center; /* Center-align if needed */
 }
 
 .profile-info img {
