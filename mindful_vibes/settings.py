@@ -78,8 +78,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mindful_vibes.wsgi.application'
 
 # Database
+# DATABASES = {
+#     'default': dj_database_url.parse(config('DATABASE_URL'))
+# }
 DATABASES = {
-    'default': dj_database_url.parse(config('DATABASE_URL'))
+    'default': dj_database_url.parse(config('DATABASE_URL', default='postgres://localhost'))
 }
 
 CSRF_TRUSTED_ORIGINS = [
@@ -110,6 +113,25 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {'class': 'logging.StreamHandler'},
+#     },
+#     'root': {
+#         'handlers': ['console'],
+#         'level': 'INFO',
+#     },
+#     'loggers': {
+#         'user_profile.views': {
+#             'handlers': ['console'],
+#             'level': 'INFO',
+#             'propagate': False,
+#         },
+#     },
+# }
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -121,6 +143,11 @@ LOGGING = {
         'level': 'INFO',
     },
     'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
         'user_profile.views': {
             'handlers': ['console'],
             'level': 'INFO',
@@ -148,6 +175,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Set a valid DEFAULT_FROM_EMAIL address
 # DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 
+<<<<<<< HEAD
 
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool, default=True)
@@ -157,3 +185,17 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default=config('EMAIL_HOST_USER'))
   
+=======
+# Email settings
+if config('DEVELOPMENT', default=False, cast=bool):
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='webmaster@localhost')
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER')
+>>>>>>> c61d7253cbdc10733c526060c318a1346c0d2d22
