@@ -1,7 +1,9 @@
+/* General Styles */
 body {
-    background-color: #F9FAFC;
+    background-color: #F9FAFC; /* Keeps the background color */
 }
 
+/* Brand */
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
@@ -9,14 +11,17 @@ body {
     color: #4A4A4F;
 }
 
+/* Red Color */
 .red-o {
     color: #E84610;
 }
 
+/* Font Weight */
 .thin {
     font-weight: 300;
 }
 
+/* Background Colors */
 .light-bg {
     background-color: #fff;
 }
@@ -29,11 +34,13 @@ body {
     background-color: #F9FAFC;
 }
 
+/* Card */
 .card {
     border: none;
     background-color: transparent;
 }
 
+/* Image Container */
 .image-container {
     position: relative;
 }
@@ -43,20 +50,23 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #188181;
+    background-color: #188181; /* Update this if needed */
 }
 
+/* Scale */
 .scale {
     width: 100%;
     height: auto;
 }
 
+/* Author */
 .author {
     color: white;
     margin: 4px;
     text-transform: uppercase;
 }
 
+/* Masthead */
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -91,6 +101,7 @@ body {
     z-index: 100;
 }
 
+/* Links */
 .post-link {
     text-decoration: none;
     color: #445261;
@@ -101,6 +112,7 @@ body {
     color: #E84610;
 }
 
+/* Post Title and Subtitle */
 .post-title {
     margin-top: 10%;
     margin-left: 5%;
@@ -111,27 +123,20 @@ body {
     color: lightgray;
 }
 
+/* Buttons */
 .btn-signup,
-.btn-edit {
-    background-color: #188181;
+.btn-edit,
+.password_reset input[type="submit"] {
+    background-color: #869D7A; /* Update button color */
     color: #fff;
 }
 
 .btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
-}
-
-.link {
-    color: #23BBBB;
-    text-decoration: none;
-}
-
-.link:hover,
-.link:active {
-    color: #445261;
-    text-decoration: underline;
+.btn-signup:active,
+.password_reset input[type="submit"]:hover,
+.password_reset input[type="submit"]:active {
+    background-color: #6E8B5E; /* Darker green for hover effect */
+    color: #fff;
 }
 
 .btn-like {
@@ -152,6 +157,19 @@ body {
     border: none;
 }
 
+/* Links */
+.link {
+    color: #23BBBB;
+    text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: #445261;
+    text-decoration: underline;
+}
+
+/* Additional Styling */
 .faded {
     color: rgb(172, 175, 175);
 }
@@ -160,37 +178,7 @@ body {
     color: rgb(222, 146, 168);
 }
 
-.password_reset input[type="submit"] {
-    background-color: #188181;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 20px;
-    width: 100%;
-}
-
-.password_reset input[type="submit"]:hover,
-.password_reset input[type="submit"]:active {
-    background-color: #fff;
-    color: #23BBBB;
-}
-
-.password_reset h3 {
-    color: #4A4A4F;
-    font-size: 1.8rem;
-    font-weight: 700;
-}
-
-.password_reset p {
-    color: #4A4A4F;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
+/* Container and Row */
 .container {
     max-width: 960px;
     margin: 0 auto;
@@ -206,6 +194,7 @@ body {
     padding-right: 15px;
 }
 
+/* Hero Section */
 .hero-section {
     position: relative;
     height: 60vh;
@@ -219,18 +208,230 @@ body {
     position: relative;
     z-index: 2; /* Ensures text is on top of the image */
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px; /* Adds some padding around the text for better readability */
+    padding: 20px;
     border-radius: 8px;
 }
 
 .hero-section h1, 
 .hero-section p {
     color: white;
-    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8); /* Improved text shadow for better contrast */
-    font-weight: bold; /* Optional: makes the text bold */
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8);
+    font-weight: bold;
 }
 
-.hero-section a.btn {
+.hero-section h1,
+.hero-section p {
+    margin: 1;
+}
+
+.hero-section .btn-primary {
+    background-color: #869D7A;
+    border: none;
+    color: #fff;
+}
+
+.hero-section .btn-primary:hover,
+.hero-section .btn-primary:active {
+    background-color: #6E8B5E;
+}
+
+/* Featured Posts Section */
+.featured-posts .card {
+    border: none;
+}
+
+.featured-posts .card-title {
+    font-size: 1.25rem;
+    color: #4A4A4F;
+}
+
+.featured-posts .card-text {
+    color: #6c757d;
+}
+
+.featured-posts .btn-outline-primary {
+    color: #869D7A;
+    border-color: #869D7A;
+}
+
+.featured-posts .btn-outline-primary:hover,
+.featured-posts .btn-outline-primary:active {
+    color: #fff;
+    background-color: #869D7A;
+    border-color: #869D7A;
+}
+
+/* Subscribe Section */
+.subscribe-section {
+    background-color: #F9FAFC;
+}
+
+.subscribe-section .btn-primary {
+    background-color: #869D7A;
+    border: none;
+    color: #fff;
+}
+
+.subscribe-section .btn-primary:hover,
+.subscribe-section .btn-primary:active {
+    background-color: #6E8B5E;
+}
+
+/* Form Inline Styles */
+.form-inline .form-control {
+    border-radius: 0;
+}
+
+.form-inline .btn-primary {
+    background-color: #869D7A;
+    border: none;
+    color: #fff;
+}
+
+.form-inline .btn-primary:hover,
+.form-inline .btn-primary:active {
+    background-color: #6E8B5E;
+}
+
+/* About Page */
+.about-img {
+    width: 100%;
+    height: auto;
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    color: #4A4A4F;
+}
+
+.about-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.about-form {
+    margin-top: 2rem;
+}
+
+.about-form hr {
+    margin: 2rem 0;
+}
+
+.about-form .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    color: #fff;
+}
+
+.about-form .btn-secondary:hover,
+.about-form .btn-secondary:active {
+    background-color: #5a6268;
+}
+
+/* User Profile Page */
+.profile-box {
+    padding: 2rem;
+}
+
+.profile-info img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.profile-info .card {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-txt {
+    font-size: 1rem;
+    color: #4A4A4F;
+}
+
+.profile-form {
+    padding: 1rem;
+}
+
+.profile-form .btn-primary {
+    background-color: #869D7A;
+    border: none;
+    color: #fff;
+}
+
+.profile-form .btn-primary:hover,
+.profile-form .btn-primary:active {
+    background-color: #6E8B5E;
+}
+
+.profile-form .btn-danger {
+    background-color: #E84610;
+    color: #fff;
+}
+
+.profile-form .btn-danger:hover,
+.profile-form .btn-danger:active {
+    background-color: #d43f1e;
+}
+
+/* Password Reset */
+.password_reset h3 {
+    color: #4A4A4F;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.password_reset p {
+    color: #4A4A4F;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+
+/* Container for banner image and overlay */
+.position-relative {
+    position: relative;
+}
+
+/* Banner image styles */
+.banner-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+/* Overlay styles */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Title styles */
+.title {
+    font-size: 4rem;
+    margin: 0;
+    z-index: 1;
+}
+
+/* Spacer to push content below the banner */
+.spacer {
+    height: 30px;
+}
+
+.row {
     margin-top: 20px;
 }
-

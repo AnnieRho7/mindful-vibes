@@ -62,9 +62,6 @@ def user_profile(request):
     })
     
 
-# def password_reset_done_view(request):
-#     return render(request, 'templates/index.html', {})
-
 @login_required
 def delete_account(request):
     if request.method == 'POST':
