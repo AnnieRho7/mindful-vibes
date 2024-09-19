@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    background-color: #F9FAFC; /* Keeps the background color */
+    background-color: #F9FAFC; /* Keeps the background color consistent */
 }
 
 /* Brand */
@@ -50,7 +50,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #188181; /* Update this if needed */
+    background-color: #188181; /* Ensure this is the correct color */
 }
 
 /* Scale */
@@ -95,9 +95,7 @@ body {
     height: 100%;
     width: 150%;
     background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
+    transform: skew(15deg); /* Updated to a unified transform property */
     z-index: 100;
 }
 
@@ -127,7 +125,7 @@ body {
 .btn-signup,
 .btn-edit,
 .password_reset input[type="submit"] {
-    background-color: #869D7A; /* Update button color */
+    background-color: #869D7A; /* Button color */
     color: #fff;
 }
 
@@ -187,6 +185,7 @@ body {
 .row {
     margin-left: 0;
     margin-right: 0;
+    margin-top: 20px; /* Added margin-top to prevent overlap with other elements */
 }
 
 .col-md-8 {
@@ -201,7 +200,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay effect */
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
 }
 
 .hero-section .container {
@@ -331,13 +334,14 @@ body {
 /* User Profile Page */
 .profile-box {
     padding: 1rem;
-    margin-top: 0;
+    margin-top: 1rem; /* Added margin-top for spacing */
 }
 
 .profile-box h1 {
-    margin-top: 0; /* Remove any top margin to align with content */
-    margin-bottom: 1rem; /* Adjust bottom margin to match profile content spacing */
-    text-align: center; /* Center-align if needed */
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #4A4A4F; /* Ensure consistency with other headings */
 }
 
 .profile-info img {
@@ -395,7 +399,6 @@ body {
     line-height: 1.5;
 }
 
-
 /* Container for banner image and overlay */
 .position-relative {
     position: relative;
@@ -434,11 +437,45 @@ body {
     z-index: 1;
 }
 
+/* Alert Banner */
+.alert-banner {
+    position: fixed;
+    top: 56px; /* Adjust this value based on your navbar height */
+    left: 0;
+    right: 0;
+    z-index: 1050; /* Ensure it appears above other content */
+    background-color: transparent; /* Make the banner background transparent initially */
+    padding: 0; /* Remove padding if necessary */
+    margin: 0; /* Remove margin if necessary */
+}
+
+/* Alert */
+.alert {
+    margin: 0; /* Remove margin to fit banner width */
+    padding: 1rem; /* Add padding for content */
+    background-color: #E84610; /* Alert background color */
+    color: white;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out; /* Smooth fade transition */
+}
+
+.alert-banner.show .alert {
+    opacity: 1; /* Fully visible */
+}
+
+.alert-banner.hide .alert {
+    opacity: 0; /* Fade out */
+}
+
+.alert .btn-close {
+    color: white;
+    opacity: 0.5;
+}
+.alert .btn-close:hover {
+    opacity: 1;
+}
 /* Spacer to push content below the banner */
 .spacer {
     height: 30px;
 }
 
-.row {
-    margin-top: 20px;
-}

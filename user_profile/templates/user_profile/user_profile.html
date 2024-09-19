@@ -2,59 +2,128 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
-<div class="profile-box contain forms-view">
-    <h1 class="lead-text my-3 mx-5">User Profile</h1> <!-- Reduced vertical margin -->
-    <div class="row my-3 justify-content-evenly"> <!-- Reduced vertical margin -->
-        <div class="profile-info col-md-4">
-            <div class="card m-1 p-3">
-                <div class="media mx-auto my-3">
-                    {% if user.userprofile.profile_image %}
-                    <img src="{{ user.userprofile.profile_image.url }}" alt="Profile Image">
-                    {% else %}
-                    <img src="{% static 'images/default.jpg' %}" alt="Default Profile Image">
-                    {% endif %}
+<div class="container py-5">
+    <div class="row">
+        <!-- User Info Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        {% if user.userprofile.profile_image %}
+                        <img src="{{ user.userprofile.profile_image.url }}" alt="Profile Image" class="rounded-circle img-fluid profile-image">
+                        {% else %}
+                        <img src="{% static 'images/default.jpg' %}" alt="Default Profile Image" class="rounded-circle img-fluid profile-image">
+                        {% endif %}
+                    </div>
+                    <h2 class="card-title mb-3">{{ user.get_full_name }}</h2>
+                    <p class="card-text text-muted">@{{ user.username }}</p>
+                    <p class="card-text">{{ user.userprofile.bio }}</p>
                 </div>
-                <p class="m-0 profile-txt"><strong>First name:</strong> {{ user.first_name|title }}</p>
-                <p class="m-0 profile-txt"><strong>Last name:</strong> {{ user.last_name|title }}</p>
-                <p class="m-0 profile-txt"><strong>Email:</strong> {{ user.email }}</p>
-                <p class="m-0 profile-txt"><strong>Username:</strong> {{ user.username }}</p>
-                <p class="m-0 profile-txt"><strong>Bio:</strong> {{ user.userprofile.bio }}</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Email:</strong> {{ user.email }}</li>
+                    <li class="list-group-item"><strong>Joined:</strong> {{ user.date_joined|date:"F d, Y" }}</li>
+                </ul>
             </div>
         </div>
-        <div class="profile-form col-md-5">
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ user_form|crispy }}
-                {{ profile_form|crispy }}
-                <p class="py-4">If you wish to reset your password <a class="button secondaryAction"
-                        href="{% url 'account_reset_password' %}"> <strong class="hover-txt"> click here!</strong></a>
-                </p>
-                <button type="submit" name="update" class="my-4 mx-3 btn btn-primary">Update</button>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                    Delete Account
-                </button>
-            </form>
 
-            <!-- Modal for account deletion -->
-            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content form-box">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="deleteModalLabel">Delete your account</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- Profile Update Form -->
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title mb-4">Edit Profile</h3>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                {{ user_form.first_name|as_crispy_field }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                {{ user_form.last_name|as_crispy_field }}
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            <p>Are you sure you want to delete your account?</p>
+                        {{ user_form.email|as_crispy_field }}
+                        {{ profile_form.bio|as_crispy_field }}
+                        {{ profile_form.profile_image|as_crispy_field }}
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <button type="submit" name="update" class="btn btn-primary">Update Profile</button>
+                            <a class="btn btn-warning" href="{% url 'account_reset_password' %}">Reset Password</a>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <form method="POST" action="{% url 'delete_account' %}">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-danger">Confirm Delete</button>
-                            </form>
-                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Delete Account Section -->
+            <div class="card mt-4 border-danger">
+                <div class="card-body text-danger">
+                    <h5 class="card-title">Danger Zone</h5>
+                    <p class="card-text">Deleting your account is permanent and cannot be undone.</p>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        Delete Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Post Section -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title mb-4">Create a New Post</h3>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-success mt-3">Create Post</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Posts Section -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title mb-4">Your Posts</h3>
+                    {% if user.blog_posts.all %}
+                    <div class="list-group">
+                        {% for post in user.blog_posts.all %}
+                        <a href="{% url 'post_detail' post.slug %}" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{ post.title }}</h5>
+                                <small class="text-muted">{{ post.created_on|date:"F d, Y" }}</small>
+                            </div>
+                            <p class="mb-1">{{ post.content|truncatewords:20 }}</p>
+                        </a>
+                        {% endfor %}
                     </div>
+                    {% else %}
+                    <p class="text-muted">You haven't created any posts yet.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Account Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete Account</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete your account? This action cannot be undone.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <form method="POST" action="{% url 'delete_account' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Confirm Delete</button>
+                    </form>
                 </div>
             </div>
         </div>
