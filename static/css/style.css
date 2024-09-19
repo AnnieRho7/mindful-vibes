@@ -1,6 +1,18 @@
 /* General Styles */
 body {
-    background-color: #F9FAFC; /* Keeps the background color consistent */
+    background-color: #ffffff;
+}
+
+/* Light mode styles */
+body.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #000000;
+    color: #ffffff;
 }
 
 /* Brand */
@@ -50,7 +62,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #188181; /* Ensure this is the correct color */
+    background-color: #188181;
 }
 
 /* Scale */
@@ -95,7 +107,7 @@ body {
     height: 100%;
     width: 150%;
     background: #445261;
-    transform: skew(15deg); /* Updated to a unified transform property */
+    transform: skew(15deg);
     z-index: 100;
 }
 
@@ -123,29 +135,30 @@ body {
 
 /* Buttons */
 .btn-signup,
-.btn-edit,
-.password_reset input[type="submit"] {
-    background-color: #869D7A; /* Button color */
-    color: #fff;
+.btn-edit {
+    background-color: #FFC107 !important; /* Force apply base color */
+    color: #fff !important;
 }
 
 .btn-signup:hover,
 .btn-signup:active,
-.password_reset input[type="submit"]:hover,
-.password_reset input[type="submit"]:active {
-    background-color: #6E8B5E; /* Darker green for hover effect */
-    color: #fff;
+.btn-edit:hover,
+.btn-edit:active {
+    background-color: #FF6F61 !important; /* Force apply hover color */
+    color: #fff !important;
 }
 
+/* No changes made to the delete button */
+.btn-delete {
+    color: #fff;
+    background: #E84610;
+}
+
+/* Like button styles */
 .btn-like {
     color: #E84610;
     border: none;
     background: transparent;
-}
-
-.btn-delete {
-    color: #fff;
-    background: #E84610;
 }
 
 .btn-like:hover,
@@ -185,7 +198,7 @@ body {
 .row {
     margin-left: 0;
     margin-right: 0;
-    margin-top: 20px; /* Added margin-top to prevent overlap with other elements */
+    margin-top: 20px;
 }
 
 .col-md-8 {
@@ -209,7 +222,7 @@ body {
 
 .hero-section .container {
     position: relative;
-    z-index: 2; /* Ensures text is on top of the image */
+    z-index: 2;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 8px;
@@ -228,14 +241,14 @@ body {
 }
 
 .hero-section .btn-primary {
-    background-color: #869D7A;
+    background-color: #FFC107;
     border: none;
     color: #fff;
 }
 
 .hero-section .btn-primary:hover,
 .hero-section .btn-primary:active {
-    background-color: #6E8B5E;
+    background-color: #FF6F61;
 }
 
 /* Featured Posts Section */
@@ -253,15 +266,15 @@ body {
 }
 
 .featured-posts .btn-outline-primary {
-    color: #869D7A;
-    border-color: #869D7A;
+    color: #FFC107;
+    border-color: #FFC107;
 }
 
 .featured-posts .btn-outline-primary:hover,
 .featured-posts .btn-outline-primary:active {
     color: #fff;
-    background-color: #869D7A;
-    border-color: #869D7A;
+    background-color: #FFC107;
+    border-color: #FFC107;
 }
 
 /* Subscribe Section */
@@ -270,14 +283,14 @@ body {
 }
 
 .subscribe-section .btn-primary {
-    background-color: #869D7A;
+    background-color: #FFC107;
     border: none;
     color: #fff;
 }
 
 .subscribe-section .btn-primary:hover,
 .subscribe-section .btn-primary:active {
-    background-color: #6E8B5E;
+    background-color: #FF6F61;
 }
 
 /* Form Inline Styles */
@@ -286,14 +299,14 @@ body {
 }
 
 .form-inline .btn-primary {
-    background-color: #869D7A;
+    background-color: #FFC107;
     border: none;
     color: #fff;
 }
 
 .form-inline .btn-primary:hover,
 .form-inline .btn-primary:active {
-    background-color: #6E8B5E;
+    background-color: #FF6F61;
 }
 
 /* About Page */
@@ -334,14 +347,14 @@ body {
 /* User Profile Page */
 .profile-box {
     padding: 1rem;
-    margin-top: 1rem; /* Added margin-top for spacing */
+    margin-top: 1rem;
 }
 
 .profile-box h1 {
     margin-top: 0;
     margin-bottom: 1rem;
     text-align: center;
-    color: #4A4A4F; /* Ensure consistency with other headings */
+    color: #4A4A4F;
 }
 
 .profile-info img {
@@ -366,14 +379,14 @@ body {
 }
 
 .profile-form .btn-primary {
-    background-color: #869D7A;
+    background-color: #FFC107;
     border: none;
     color: #fff;
 }
 
 .profile-form .btn-primary:hover,
 .profile-form .btn-primary:active {
-    background-color: #6E8B5E;
+    background-color: #FF6F61;
 }
 
 .profile-form .btn-danger {
@@ -440,31 +453,30 @@ body {
 /* Alert Banner */
 .alert-banner {
     position: fixed;
-    top: 56px; /* Adjust this value based on your navbar height */
+    top: 56px;
     left: 0;
     right: 0;
-    z-index: 1050; /* Ensure it appears above other content */
-    background-color: transparent; /* Make the banner background transparent initially */
-    padding: 0; /* Remove padding if necessary */
-    margin: 0; /* Remove margin if necessary */
+    z-index: 1050;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
 }
 
-/* Alert */
 .alert {
-    margin: 0; /* Remove margin to fit banner width */
-    padding: 1rem; /* Add padding for content */
-    background-color: #E84610; /* Alert background color */
-    color: white;
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.5s ease-in-out; /* Smooth fade transition */
+    margin: 0;
+    padding: 1rem;
+    background-color: #E84610;
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .alert-banner.show .alert {
-    opacity: 1; /* Fully visible */
+    opacity: 1;
 }
 
 .alert-banner.hide .alert {
-    opacity: 0; /* Fade out */
+    opacity: 0;
 }
 
 .alert .btn-close {
@@ -478,4 +490,3 @@ body {
 .spacer {
     height: 30px;
 }
-
