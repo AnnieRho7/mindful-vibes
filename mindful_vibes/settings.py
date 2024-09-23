@@ -1,11 +1,16 @@
+"""
+Django settings for the Mindful Vibes project.
+
+This file contains all the configuration settings for the Django project,
+including database configuration, installed apps, middleware, templates,
+static files, and various other Django and third-party app settings.
+"""
 
 import os
 from pathlib import Path
 from decouple import config
 import dj_database_url
 
-# if os.path.isfile("env.py"):
-#     import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,10 +84,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mindful_vibes.wsgi.application'
 
-# Database
-# DATABASES = {
-#     'default': dj_database_url.parse(config('DATABASE_URL'))
-# }
 DATABASES = {
     'default': dj_database_url.parse(config('DATABASE_URL', default='postgres://localhost'))
 }
@@ -91,6 +92,18 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.codeinstitute-ide.net/",
     "https://*.herokuapp.com"
 ]
+
+# Cloudinary settings
+CLOUDINARY_URL = config('CLOUDINARY_URL')
+
+# Cloudinary storage settings
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUDINARY_URL').split('@')[-1],
+    'API_KEY': config('CLOUDINARY_URL').split('://')[1].split(':')[0],
+    'API_SECRET': config('CLOUDINARY_URL').split('://')[1].split(':')[1].split('@')[0]
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -108,31 +121,13 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
+# Static files configuration
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'handlers': {
-#         'console': {'class': 'logging.StreamHandler'},
-#     },
-#     'root': {
-#         'handlers': ['console'],
-#         'level': 'INFO',
-#     },
-#     'loggers': {
-#         'user_profile.views': {
-#             'handlers': ['console'],
-#             'level': 'INFO',
-#             'propagate': False,
-#         },
-#     },
-# }
 
 LOGGING = {
     'version': 1,
@@ -162,6 +157,7 @@ LOGGING = {
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Email configuration
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool, default=True)
 EMAIL_PORT = config('EMAIL_PORT', cast=int, default=587)
@@ -171,15 +167,3 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default=config('EMAIL_HOST_USER'))
   
 
-# # Email settings
-# if config('DEVELOPMENT', default=False, cast=bool):
-#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-#     DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='webmaster@localhost')
-# else:
-#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-#     EMAIL_USE_TLS = True
-#     EMAIL_PORT = 587
-#     EMAIL_HOST = 'smtp.gmail.com'
-#     EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-#     EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASS')
-#     DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER')

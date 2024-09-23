@@ -148,7 +148,6 @@ body.dark-mode {
     color: #fff !important;
 }
 
-/* No changes made to the delete button */
 .btn-delete {
     color: #fff;
     background: #E84610;
@@ -189,7 +188,6 @@ body.dark-mode {
     color: rgb(222, 146, 168);
 }
 
-/* Container and Row */
 .container {
     max-width: 960px;
     margin: 0 auto;
