@@ -2,15 +2,16 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-STATUS = ((0, "Draft"), (1, "Published"))
-
+STATUS = (
+    (0, "Draft"),
+    (1, "Published"),
+    (2, "Pending Approval"),
+)
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="blog_posts"
-    )
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
     featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
@@ -29,8 +30,7 @@ class Post(models.Model):
     def get_featured_posts(cls):
         """Class method to get featured posts."""
         return cls.objects.filter(status=1, featured=True).order_by('-created_on')[:3]
-
-
+    
 class Comment(models.Model):
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments"

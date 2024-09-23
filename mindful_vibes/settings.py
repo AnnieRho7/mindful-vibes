@@ -7,9 +7,17 @@ static files, and various other Django and third-party app settings.
 """
 
 import os
+from dotenv import load_dotenv
 from pathlib import Path
 from decouple import config
 import dj_database_url
+
+load_dotenv()
+
+CLOUDINARY_URL = os.getenv('CLOUDINARY_URL')
+
+# Optional: If you want to configure Cloudinary storage
+DEFAULT_FILE_STORAGE = 'cloudinary.storage.MediaCloudinaryStorage'
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -48,6 +56,7 @@ INSTALLED_APPS = [
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -93,17 +102,6 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.herokuapp.com"
 ]
 
-# Cloudinary settings
-CLOUDINARY_URL = config('CLOUDINARY_URL')
-
-# Cloudinary storage settings
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': config('CLOUDINARY_URL').split('@')[-1],
-    'API_KEY': config('CLOUDINARY_URL').split('://')[1].split(':')[0],
-    'API_SECRET': config('CLOUDINARY_URL').split('://')[1].split(':')[1].split('@')[0]
-}
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [

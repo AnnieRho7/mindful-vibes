@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm
 from .models import Subscriber
+from .forms import PostForm
 
 # Create your views here.
 
@@ -113,3 +114,35 @@ def subscribe(request):
         else:
             messages.error(request, 'Please provide a valid email address.')
     return redirect('home')
+
+def create_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.status = 2
+            post.save()
+            messages.success(request, 'Your post is awaiting approval.')
+            return redirect('user_profile')
+    else:
+        form = PostForm()
+    return render(request, 'blog/create_post.html', {'form': form})
+
+def edit_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('user_profile')
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'edit_post.html', {'form': form})
+
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('profile')
+    return render(request, 'delete_post.html', {'post': post})
