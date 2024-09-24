@@ -12,7 +12,7 @@
                         {% if user_profile.profile_image %}
                         <img src="{{ user_profile.profile_image.url }}" alt="Profile Image" class="rounded-circle img-fluid profile-image">
                         {% else %}
-                        <img src="{% static 'images/default.jpg' %}" alt="Default Profile Image" class="rounded-circle img-fluid profile-image">
+                        <img src="{% static 'images/default.png' %}" alt="Default Profile Image" class="rounded-circle img-fluid profile-image">
                         {% endif %}
                     </div>
                     <h2 class="card-title mb-3">{{ user.get_full_name }}</h2>
