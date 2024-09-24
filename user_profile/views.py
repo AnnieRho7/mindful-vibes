@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from .forms import UserForm, ProfileForm
 from .models import UserProfile
 
+
 @login_required
 def user_profile(request):
     user = request.user
