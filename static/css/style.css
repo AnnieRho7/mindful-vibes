@@ -3,26 +3,6 @@ body {
     background-color: #ffffff;
 }
 
-/* Light mode styles */
-body.light-mode {
-    background-color: #ffffff;
-    color: #000000;
-}
-
-/* Dark mode styles */
-body.dark-mode {
-    background-color: #000000;
-    color: #ffffff;
-}
-
-/* Brand */
-.brand {
-    font-family: Lato, sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #4A4A4F;
-}
-
 /* Red Color */
 .red-o {
     color: #E84610;
@@ -39,11 +19,11 @@ body.dark-mode {
 }
 
 .dark-bg {
-    background-color: #445261;
+    background-color: #131415;
 }
 
 .main-bg {
-    background-color: #F9FAFC;
+    background-color: #ffffff);
 }
 
 /* Card */
@@ -62,7 +42,7 @@ body.dark-mode {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #188181;
+    background-color: #FF6F61;
 }
 
 /* Scale */
@@ -78,7 +58,7 @@ body.dark-mode {
     text-transform: uppercase;
 }
 
-/* Masthead */
+/* Masthead -post_detail */
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -89,7 +69,7 @@ body.dark-mode {
 }
 
 .masthead-text {
-    background-color: #445261;
+    background-color: #FF6F61;
     color: white;
     position: relative;
 }
@@ -106,9 +86,19 @@ body.dark-mode {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #445261;
+    background: #FF6F61;
     transform: skew(15deg);
     z-index: 100;
+}
+
+/* Card Styles */
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    color: #4A4A4F;
 }
 
 /* Links */
@@ -136,7 +126,7 @@ body.dark-mode {
 /* Buttons */
 .btn-signup,
 .btn-edit {
-    background-color: #FFC107 !important; /* Force apply base color */
+    background-color: #FF6F61 !important;
     color: #fff !important;
 }
 
@@ -144,7 +134,7 @@ body.dark-mode {
 .btn-signup:active,
 .btn-edit:hover,
 .btn-edit:active {
-    background-color: #FF6F61 !important; /* Force apply hover color */
+    background-color: #FFC107 !important;
     color: #fff !important;
 }
 
@@ -153,7 +143,16 @@ body.dark-mode {
     background: #E84610;
 }
 
-/* Like button styles */
+.btn-custom {
+    background-color: #FF6F61;
+    color: white;
+}
+
+.btn-custom:hover {
+    background-color: #FFC107;
+    color: white;
+}
+
 .btn-like {
     color: #E84610;
     border: none;
@@ -239,14 +238,14 @@ body.dark-mode {
 }
 
 .hero-section .btn-primary {
-    background-color: #FFC107;
+    background-color: #FF6F61;
     border: none;
     color: #fff;
 }
 
 .hero-section .btn-primary:hover,
 .hero-section .btn-primary:active {
-    background-color: #FF6F61;
+    background-color: #FFC107;
 }
 
 /* Featured Posts Section */
@@ -256,7 +255,7 @@ body.dark-mode {
 
 .featured-posts .card-title {
     font-size: 1.25rem;
-    color: #4A4A4F;
+    color: #4A4A4F; /* Existing color for card titles */
 }
 
 .featured-posts .card-text {
@@ -264,8 +263,8 @@ body.dark-mode {
 }
 
 .featured-posts .btn-outline-primary {
-    color: #FFC107;
-    border-color: #FFC107;
+    color: #FF6F61;
+    border-color: #FF6F61;
 }
 
 .featured-posts .btn-outline-primary:hover,
@@ -281,14 +280,14 @@ body.dark-mode {
 }
 
 .subscribe-section .btn-primary {
-    background-color: #FFC107;
+    background-color: #FF6F61;
     border: none;
     color: #fff;
 }
 
 .subscribe-section .btn-primary:hover,
 .subscribe-section .btn-primary:active {
-    background-color: #FF6F61;
+    background-color: #FFC107;
 }
 
 /* Form Inline Styles */
@@ -297,14 +296,14 @@ body.dark-mode {
 }
 
 .form-inline .btn-primary {
-    background-color: #FFC107;
+    background-color: #FF6F61;
     border: none;
     color: #fff;
 }
 
 .form-inline .btn-primary:hover,
 .form-inline .btn-primary:active {
-    background-color: #FF6F61;
+    background-color: #FFC107;
 }
 
 /* About Page */
@@ -377,14 +376,14 @@ body.dark-mode {
 }
 
 .profile-form .btn-primary {
-    background-color: #FFC107;
+    background-color: #FF6F61;
     border: none;
     color: #fff;
 }
 
 .profile-form .btn-primary:hover,
 .profile-form .btn-primary:active {
-    background-color: #FF6F61;
+    background-color: #FFC107;
 }
 
 .profile-form .btn-danger {

@@ -1,18 +1,6 @@
 /* General Styles */
 body {
-    background-color: #ffffff;
-}
-
-/* Light mode styles */
-body.light-mode {
-    background-color: #ffffff;
-    color: #000000;
-}
-
-/* Dark mode styles */
-body.dark-mode {
     background-color: #000000;
-    color: #ffffff;
 }
 
 /* Brand */
@@ -34,16 +22,8 @@ body.dark-mode {
 }
 
 /* Background Colors */
-.light-bg {
-    background-color: #fff;
-}
-
-.dark-bg {
-    background-color: #445261;
-}
-
 .main-bg {
-    background-color: #F9FAFC;
+    background-color: #000000;
 }
 
 /* Card */
@@ -89,7 +69,7 @@ body.dark-mode {
 }
 
 .masthead-text {
-    background-color: #445261;
+    background-color: #445261; /* Retaining this as it’s part of your design */
     color: white;
     position: relative;
 }
@@ -106,7 +86,7 @@ body.dark-mode {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #445261;
+    background: #445261; /* Retaining this */
     transform: skew(15deg);
     z-index: 100;
 }
@@ -132,7 +112,6 @@ body.dark-mode {
     margin-left: 5%;
     color: lightgray;
 }
-
 /* Buttons */
 .btn-signup,
 .btn-edit {
@@ -153,6 +132,17 @@ body.dark-mode {
     background: #E84610;
 }
 
+/* Correcting the selector for btn-custom */
+.btn-custom {
+    background-color: #FF6F61; /* Coral color */
+    color: white; /* White text */
+}
+
+.btn-custom:hover {
+    background-color: #FFC107; /* Lighter color on hover */
+    color: white; /* Keep text white on hover */
+}
+
 /* Like button styles */
 .btn-like {
     color: #E84610;
@@ -166,6 +156,7 @@ body.dark-mode {
     background: transparent;
     border: none;
 }
+
 
 /* Links */
 .link {
@@ -211,7 +202,7 @@ body.dark-mode {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7); /* Keeping dark overlay */
     overflow: hidden;
     margin: 0;
     padding: 0;
@@ -250,6 +241,12 @@ body.dark-mode {
 }
 
 /* Featured Posts Section */
+.text-center.mb-4 {
+    color: #FF6F61;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
 .featured-posts .card {
     border: none;
 }
@@ -264,8 +261,8 @@ body.dark-mode {
 }
 
 .featured-posts .btn-outline-primary {
-    color: #FFC107;
-    border-color: #FFC107;
+    color: #FF6F61;
+    border-color: #FF6F61;
 }
 
 .featured-posts .btn-outline-primary:hover,
@@ -275,10 +272,10 @@ body.dark-mode {
     border-color: #FFC107;
 }
 
+
 /* Subscribe Section */
 .subscribe-section {
     background-color: #F9FAFC;
-}
 
 .subscribe-section .btn-primary {
     background-color: #FFC107;
@@ -457,35 +454,4 @@ body.dark-mode {
     z-index: 1050;
     background-color: transparent;
     padding: 0;
-    margin: 0;
 }
-
-.alert {
-    margin: 0;
-    padding: 1rem;
-    background-color: #E84610;
-    color: #ffffff;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.alert-banner.show .alert {
-    opacity: 1;
-}
-
-.alert-banner.hide .alert {
-    opacity: 0;
-}
-
-.alert .btn-close {
-    color: white;
-    opacity: 0.5;
-}
-.alert .btn-close:hover {
-    opacity: 1;
-}
-/* Spacer to push content below the banner */
-.spacer {
-    height: 30px;
-}
-

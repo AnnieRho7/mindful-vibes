@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div class="container mt-5">
+<div class="container mt-5 light-bg">
     <div class="row">
         <!-- Responsive Image Column -->
         <div class="col-md-4 text-center">
@@ -23,23 +23,23 @@
         </div>
     </div>
     
-    <div class="row justify-content-center mt-5">
+    <div class="row justify-content-center mt-5 mb-5"> <!-- Added mb-5 for bottom margin -->
         <div class="col-12 col-md-8 col-lg-6">
             <h2>Let's collaborate!</h2>
             <p>At Mindful Vibes, we believe in the power of shared knowledge and working together to create meaningful content that inspires. Whether you're passionate about mental health, wellness, mindfulness, or self-care, we'd love to connect! If you have a project in mind, want to collaborate on an article, or simply want to share ideas, drop me a message—let’s get in touch and see what we can create together.</p>
-
+    
             <hr>
-
+    
             <p>Fill out the form below, and let’s start the conversation!</p>
-
+    
             <!-- Collaboration Form -->
             <form method="post">
                 {{ collaborate_form | crispy }}
                 {% csrf_token %}
-                <button class="btn btn-secondary" type="submit">Submit</button>
+                <button class="btn btn-custom" type="submit">Submit</button> <!-- Using the custom button class -->
             </form>
         </div>
     </div>
-</div>
+    
 
 {% endblock content %}
