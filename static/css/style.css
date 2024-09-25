@@ -66,6 +66,7 @@ body {
     display: inline-block;
     height: 33vh;
     width: 100%;
+    display: flex;
 }
 
 .masthead-text {
@@ -114,13 +115,15 @@ body {
 
 /* Post Title and Subtitle */
 .post-title {
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: 5%;
+    max-width: 100%;
+    font-size: 2vw;
 }
 
 .post-subtitle {
     margin-left: 5%;
-    color: lightgray;
+    color: whitesmoke;
 }
 
 /* Buttons */
