@@ -490,3 +490,8 @@ body {
 .spacer {
     height: 30px;
 }
+
+/* Footer */
+.footer {
+    background-color: #4a90e2;
+}
