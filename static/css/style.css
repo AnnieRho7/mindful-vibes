@@ -493,5 +493,6 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #4a90e2;
+    background: radial-gradient(circle, #FF6F61, #FFC107); /* Radial gradient */
+    padding: 20px 0;
 }
