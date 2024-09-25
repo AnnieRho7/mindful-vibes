@@ -5,7 +5,8 @@
 {% block content %}
 
 <div class="container mt-5 light-bg">
-    <div class="row">
+    <!-- About Section -->
+    <div class="row mb-5">
         <!-- Responsive Image Column -->
         <div class="col-md-4 text-center">
             <img src="{% static 'images/aboutimg.jpg' %}" class="img-fluid" alt="About Image">
@@ -16,22 +17,25 @@
             {{ about.content | safe }}
         </div>
     </div>
-    
+
     <div class="row mt-4">
         <div class="col text-end">
             <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
         </div>
     </div>
-    
-    <div class="row justify-content-center mt-5 mb-5"> <!-- Added mb-5 for bottom margin -->
-        <div class="col-12 col-md-8 col-lg-6">
+</div>
+
+<!-- Collaboration Section -->
+<div class="container mt-5 light-bg">
+    <div class="row justify-content-start mb-5"> <!-- Aligning content to the left -->
+        <div class="col-md-6 pe-4"> <!-- Adjusting column width and adding right padding -->
             <h2>Let's collaborate!</h2>
             <p>At Mindful Vibes, we believe in the power of shared knowledge and working together to create meaningful content that inspires. Whether you're passionate about mental health, wellness, mindfulness, or self-care, we'd love to connect! If you have a project in mind, want to collaborate on an article, or simply want to share ideas, drop me a message—let’s get in touch and see what we can create together.</p>
-    
+
             <hr>
-    
+
             <p>Fill out the form below, and let’s start the conversation!</p>
-    
+
             <!-- Collaboration Form -->
             <form method="post">
                 {{ collaborate_form | crispy }}
@@ -39,7 +43,11 @@
                 <button class="btn btn-custom" type="submit">Submit</button> <!-- Using the custom button class -->
             </form>
         </div>
+        <div class="col-md-6 text-center"> <!-- Column for the image -->
+            <img src="{% static 'images/about.jpg' %}" class="img-fluid" alt="Collaboration Image">
+            <!-- Replace with your actual image path -->
+        </div>
     </div>
-    
+</div>
 
 {% endblock content %}

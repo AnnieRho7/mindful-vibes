@@ -26,6 +26,48 @@ body {
     background-color: #ffffff;
 }
 
+/* Navbar Background Color (Same as Footer's Yellow) */
+.custom-navbar {
+    background-color: #FFDD00; /* Yellow background */
+}
+
+/* Logo Styling: Roboto font, bold, and white color */
+.navbar-brand .brand {
+    font-family: 'Roboto', sans-serif; /* Roboto font */
+    font-weight: bold; /* Bold text */
+    color: white; /* White color for logo */
+    font-size: 24px; /* Adjust size if needed */
+}
+
+/* Navbar Links: White and not blue */
+.custom-navbar .nav-link {
+    color: white !important; /* Ensure links are white */
+    font-weight: 400; /* Normal weight for links */
+    text-transform: capitalize; /* Capitalize the first letter */
+}
+
+/* Navbar Links Hover Effect */
+.custom-navbar .nav-link:hover {
+    color: #FFD700; /* Slightly lighter yellow for hover effect */
+}
+
+/* Active Link Styling */
+.custom-navbar .nav-link.active {
+    color: #FFC107; /* Active link color, similar to your footer gradient */
+    font-weight: bold;
+}
+
+/* Mobile Menu Toggler Icon */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+}
+
+/* Make Sure There's Padding on Navbar Links for Better Clickability */
+.navbar-nav .nav-item .nav-link {
+    padding: 8px 12px; /* Adjust padding as needed */
+}
+
+
 /* Card */
 .card {
     border: none;
@@ -489,4 +531,10 @@ body {
 /* Spacer to push content below the banner */
 .spacer {
     height: 30px;
+}
+
+/* Footer */
+.footer {
+    background: radial-gradient(circle, #FF6F61, #FFC107); /* Radial gradient */
+    padding: 20px 0;
 }

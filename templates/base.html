@@ -30,68 +30,63 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <!-- <style>
-        .alert-banner {
-            position: fixed;
-            top: 56px;
-            /* Adjust this value to match the height of your navbar */
-            left: 0;
-            right: 0;
-            z-index: 1040;
-            /* Ensure it's below the navbar (default z-index of navbar is 1030) */
-            border-radius: 0;
-            margin-top: 0;
-        }
-    </style> -->
 
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg custom-navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">Mindful Vibes</span></a>
+            <!-- Logo -->
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <span class="brand">Mindful Vibes</span>
+            </a>
+
+            <!-- Toggler for Mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
+                        <a class="nav-link {% if request.path == home_url %}active{% endif %}"
                             href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == about_url %}active{% endif %}" aria-current="page"
+                        <a class="nav-link {% if request.path == about_url %}active{% endif %}"
                             href="{% url 'about' %}">About</a>
                     </li>
-                    <li class="nav-item"></li>
-                    <a class="nav-link {% if request.path == blog_url %}active{% endif %}" aria-current="page"
-                        href="{% url 'blog' %}">Blog</a>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == blog_url %}active{% endif %}"
+                            href="{% url 'blog' %}">Blog</a>
                     </li>
+
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == user_profile_url %}active{% endif %}"
-                            aria-current="page" href="{% url 'user_profile' %}">My Profile</a>
+                            href="{% url 'user_profile' %}">My Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
+                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}"
                             href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}"
                             href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+                        <a class="nav-link {% if request.path == login_url %}active{% endif %}"
                             href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
-
                 </ul>
 
+                <!-- Optional Text on the Right -->
                 <span class="navbar-text ms-auto">
                     {% if user.is_authenticated %}
                     You are logged in as {{ user.username }}
@@ -101,8 +96,8 @@
                 </span>
             </div>
         </div>
-
     </nav>
+
 
     <!-- displaying Django messages -->
     <div class="alert-banner">
