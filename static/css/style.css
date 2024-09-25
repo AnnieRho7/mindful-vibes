@@ -221,17 +221,17 @@ body {
 }
 
 .hero-section .container {
+    width: 50%;
     position: relative;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 8px;
+    background-color: rgba(255, 111, 97, 0.8);
+    padding: 30px;
+    border-radius: 10px;
 }
 
 .hero-section h1, 
 .hero-section p {
     color: white;
-    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8);
     font-weight: bold;
 }
 
@@ -241,14 +241,14 @@ body {
 }
 
 .hero-section .btn-primary {
-    background-color: #FF6F61;
+    background-color: #FFC107;
     border: none;
     color: #fff;
 }
 
 .hero-section .btn-primary:hover,
 .hero-section .btn-primary:active {
-    background-color: #FFC107;
+    background-color: #4a90e2;
 }
 
 /* Featured Posts Section */
