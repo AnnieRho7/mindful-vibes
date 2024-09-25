@@ -1,14 +1,6 @@
 /* General Styles */
 body {
-    background-color: #000000;
-}
-
-/* Brand */
-.brand {
-    font-family: Lato, sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #4A4A4F;
+    background-color: #ffffff;
 }
 
 /* Red Color */
@@ -22,8 +14,16 @@ body {
 }
 
 /* Background Colors */
+.light-bg {
+    background-color: #fff;
+}
+
+.dark-bg {
+    background-color: #131415;
+}
+
 .main-bg {
-    background-color: #000000;
+    background-color: #ffffff;
 }
 
 /* Card */
@@ -42,7 +42,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #188181;
+    background-color: #FF6F61;
 }
 
 /* Scale */
@@ -58,7 +58,7 @@ body {
     text-transform: uppercase;
 }
 
-/* Masthead */
+/* Masthead -post_detail */
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -66,10 +66,11 @@ body {
     display: inline-block;
     height: 33vh;
     width: 100%;
+    display: flex;
 }
 
 .masthead-text {
-    background-color: #445261;
+    background-color: #FF6F61;
     color: white;
     position: relative;
 }
@@ -86,9 +87,19 @@ body {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #445261;
+    background: #FF6F61;
     transform: skew(15deg);
     z-index: 100;
+}
+
+/* Card Styles */
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    color: #4A4A4F;
 }
 
 /* Links */
@@ -104,36 +115,29 @@ body {
 
 /* Post Title and Subtitle */
 .post-title {
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: 5%;
+    max-width: 100%;
+    font-size: 2vw;
 }
 
 .post-subtitle {
     margin-left: 5%;
-    color: lightgray;
+    color: whitesmoke;
 }
 
 /* Buttons */
 .btn-signup,
-.btn-edit,
-.subscribe-section .btn-primary,
-.profile-form .btn-primary,
-.form-inline .btn-primary {
-    background-color: #FFC107 !important;
+.btn-edit {
+    background-color: #FF6F61 !important;
     color: #fff !important;
 }
 
 .btn-signup:hover,
 .btn-signup:active,
 .btn-edit:hover,
-.btn-edit:active,
-.subscribe-section .btn-primary:hover,
-.subscribe-section .btn-primary:active,
-.profile-form .btn-primary:hover,
-.profile-form .btn-primary:active,
-.form-inline .btn-primary:hover,
-.form-inline .btn-primary:active {
-    background-color: #FF6F61 !important;
+.btn-edit:active {
+    background-color: #FFC107 !important;
     color: #fff !important;
 }
 
@@ -152,7 +156,6 @@ body {
     color: white;
 }
 
-/* Like button styles */
 .btn-like {
     color: #E84610;
     border: none;
@@ -166,19 +169,25 @@ body {
     border: none;
 }
 
-/* Navbar Links */
-.navbar-nav .nav-link {
-    color: #E84610;
+/* Links */
+.link {
+    color: #23BBBB;
+    text-decoration: none;
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
-    color: #FFC107;
+.link:hover,
+.link:active {
+    color: #445261;
+    text-decoration: underline;
 }
 
 /* Additional Styling */
+.faded {
+    color: rgb(172, 175, 175);
+}
+
 .approval {
-    color: #FF6F61;
+    color: rgb(222, 146, 168);
 }
 
 .container {
@@ -212,17 +221,17 @@ body {
 }
 
 .hero-section .container {
+    width: 50%;
     position: relative;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 8px;
+    background-color: rgba(255, 111, 97, 0.8);
+    padding: 30px;
+    border-radius: 10px;
 }
 
 .hero-section h1, 
 .hero-section p {
     color: white;
-    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8);
     font-weight: bold;
 }
 
@@ -239,23 +248,17 @@ body {
 
 .hero-section .btn-primary:hover,
 .hero-section .btn-primary:active {
-    background-color: #FF6F61;
+    background-color: #4a90e2;
 }
 
 /* Featured Posts Section */
-.text-center.mb-4 {
-    color: #FF6F61;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
-}
-
 .featured-posts .card {
     border: none;
 }
 
 .featured-posts .card-title {
     font-size: 1.25rem;
-    color: #4A4A4F;
+    color: #4A4A4F; /* Existing color for card titles */
 }
 
 .featured-posts .card-text {
@@ -279,9 +282,31 @@ body {
     background-color: #F9FAFC;
 }
 
+.subscribe-section .btn-primary {
+    background-color: #FF6F61;
+    border: none;
+    color: #fff;
+}
+
+.subscribe-section .btn-primary:hover,
+.subscribe-section .btn-primary:active {
+    background-color: #FFC107;
+}
+
 /* Form Inline Styles */
 .form-inline .form-control {
     border-radius: 0;
+}
+
+.form-inline .btn-primary {
+    background-color: #FF6F61;
+    border: none;
+    color: #fff;
+}
+
+.form-inline .btn-primary:hover,
+.form-inline .btn-primary:active {
+    background-color: #FFC107;
 }
 
 /* About Page */
@@ -353,6 +378,17 @@ body {
     padding: 1rem;
 }
 
+.profile-form .btn-primary {
+    background-color: #FF6F61;
+    border: none;
+    color: #fff;
+}
+
+.profile-form .btn-primary:hover,
+.profile-form .btn-primary:active {
+    background-color: #FFC107;
+}
+
 .profile-form .btn-danger {
     background-color: #E84610;
     color: #fff;
@@ -376,6 +412,7 @@ body {
     line-height: 1.5;
 }
 
+/* Container for banner image and overlay */
 .position-relative {
     position: relative;
 }
@@ -421,14 +458,35 @@ body {
     right: 0;
     z-index: 1050;
     background-color: transparent;
+    padding: 0;
+    margin: 0;
 }
 
-/* Footer */
-.footer {
-    background-color: #333;
-    padding: 20px 0;
+.alert {
+    margin: 0;
+    padding: 1rem;
+    background-color: #E84610;
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
-.social-icon {
-    text-decoration: none;
+.alert-banner.show .alert {
+    opacity: 1;
+}
+
+.alert-banner.hide .alert {
+    opacity: 0;
+}
+
+.alert .btn-close {
+    color: white;
+    opacity: 0.5;
+}
+.alert .btn-close:hover {
+    opacity: 1;
+}
+/* Spacer to push content below the banner */
+.spacer {
+    height: 30px;
 }
