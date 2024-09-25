@@ -69,7 +69,7 @@ body {
 }
 
 .masthead-text {
-    background-color: #445261; /* Retaining this as it’s part of your design */
+    background-color: #445261;
     color: white;
     position: relative;
 }
@@ -86,7 +86,7 @@ body {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #445261; /* Retaining this */
+    background: #445261;
     transform: skew(15deg);
     z-index: 100;
 }
@@ -112,18 +112,28 @@ body {
     margin-left: 5%;
     color: lightgray;
 }
+
 /* Buttons */
 .btn-signup,
-.btn-edit {
-    background-color: #FFC107 !important; /* Force apply base color */
+.btn-edit,
+.subscribe-section .btn-primary,
+.profile-form .btn-primary,
+.form-inline .btn-primary {
+    background-color: #FFC107 !important;
     color: #fff !important;
 }
 
 .btn-signup:hover,
 .btn-signup:active,
 .btn-edit:hover,
-.btn-edit:active {
-    background-color: #FF6F61 !important; /* Force apply hover color */
+.btn-edit:active,
+.subscribe-section .btn-primary:hover,
+.subscribe-section .btn-primary:active,
+.profile-form .btn-primary:hover,
+.profile-form .btn-primary:active,
+.form-inline .btn-primary:hover,
+.form-inline .btn-primary:active {
+    background-color: #FF6F61 !important;
     color: #fff !important;
 }
 
@@ -132,15 +142,14 @@ body {
     background: #E84610;
 }
 
-/* Correcting the selector for btn-custom */
 .btn-custom {
-    background-color: #FF6F61; /* Coral color */
-    color: white; /* White text */
+    background-color: #FF6F61;
+    color: white;
 }
 
 .btn-custom:hover {
-    background-color: #FFC107; /* Lighter color on hover */
-    color: white; /* Keep text white on hover */
+    background-color: #FFC107;
+    color: white;
 }
 
 /* Like button styles */
@@ -157,24 +166,17 @@ body {
     border: none;
 }
 
-
-/* Links */
-.link {
-    color: #23BBBB;
-    text-decoration: none;
+/* Navbar Links */
+.navbar-nav .nav-link {
+    color: #E84610;
 }
 
-.link:hover,
-.link:active {
-    color: #445261;
-    text-decoration: underline;
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    color: #FFC107;
 }
 
 /* Additional Styling */
-.faded {
-    color: rgb(172, 175, 175);
-}
-
 .approval {
     color: rgb(222, 146, 168);
 }
@@ -202,7 +204,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.7); /* Keeping dark overlay */
+    background-color: rgba(0, 0, 0, 0.7);
     overflow: hidden;
     margin: 0;
     padding: 0;
@@ -272,36 +274,14 @@ body {
     border-color: #FFC107;
 }
 
-
 /* Subscribe Section */
 .subscribe-section {
     background-color: #F9FAFC;
-
-.subscribe-section .btn-primary {
-    background-color: #FFC107;
-    border: none;
-    color: #fff;
-}
-
-.subscribe-section .btn-primary:hover,
-.subscribe-section .btn-primary:active {
-    background-color: #FF6F61;
 }
 
 /* Form Inline Styles */
 .form-inline .form-control {
     border-radius: 0;
-}
-
-.form-inline .btn-primary {
-    background-color: #FFC107;
-    border: none;
-    color: #fff;
-}
-
-.form-inline .btn-primary:hover,
-.form-inline .btn-primary:active {
-    background-color: #FF6F61;
 }
 
 /* About Page */
@@ -373,17 +353,6 @@ body {
     padding: 1rem;
 }
 
-.profile-form .btn-primary {
-    background-color: #FFC107;
-    border: none;
-    color: #fff;
-}
-
-.profile-form .btn-primary:hover,
-.profile-form .btn-primary:active {
-    background-color: #FF6F61;
-}
-
 .profile-form .btn-danger {
     background-color: #E84610;
     color: #fff;
@@ -407,7 +376,6 @@ body {
     line-height: 1.5;
 }
 
-/* Container for banner image and overlay */
 .position-relative {
     position: relative;
 }
@@ -453,5 +421,14 @@ body {
     right: 0;
     z-index: 1050;
     background-color: transparent;
-    padding: 0;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    padding: 20px 0;
+}
+
+.social-icon {
+    text-decoration: none;
 }
