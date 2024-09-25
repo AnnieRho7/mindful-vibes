@@ -7,8 +7,8 @@ static files, and various other Django and third-party app settings.
 """
 
 import os
-from dotenv import load_dotenv
 from pathlib import Path
+from dotenv import load_dotenv
 from decouple import config
 import dj_database_url
 
@@ -16,11 +16,8 @@ load_dotenv()
 
 CLOUDINARY_URL = os.getenv('CLOUDINARY_URL')
 
-# Optional: If you want to configure Cloudinary storage
 DEFAULT_FILE_STORAGE = 'cloudinary.storage.MediaCloudinaryStorage'
 
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
