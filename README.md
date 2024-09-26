@@ -4,33 +4,8 @@ Mindful Vibes is a wellness blog focused on mental health, balance, and stress m
 
 ## Live Site
 
-A live version of the site can be found [here](https://your-deployment-link-here.com)  
-![Mindful Vibes Mockup](documentation/images/MindfulVibes-mockup.png)
-
-## Contents
-
-- [Introduction](#introduction)
-- [User Experience - UX](#user-experience)
-  - [User Stories](#user-stories)
-  - [Agile Methodology](#agile-methodology)
-  - [The Scope](#the-scope)
-- [Design](#design)
-  - [Colours](#colours)
-  - [Media](#media)
-  - [Database](#database)
-- [Features](#features)
-  - [Homepage](#homepage)
-  - [Navigation Desktop](#navigation-desktop)
-  - [Navigation Mobile](#navigation-mobile)
-- [Technologies](#technologies)
-- [Development & Testing](#development--testing)
-  - [Manual Testing Results](#manual-testing-results)
-- [Deployment](#deployment)
-- [Credits](#credits)
-
-## Introduction
-
-Mindful Vibes is a full-stack Django project utilizing PostgreSQL for database management and deployed on [Heroku](https://www.heroku.com/).
+A live version of the site can be found [here](https://mindful-vibes-4dd2a43e1ec5.herokuapp.com/)  
+![Mindful Vibes Responsivness](readme-images/amirespon.png)
 
 ## User Experience - UX
 
@@ -207,9 +182,10 @@ Mindful Vibes uses a calming color palette to promote a sense of tranquility and
 
 [Back to the top](#top)
 
-### Manual Testing Results
+### Manual Testing
 
-* Manual testing results are documented [here](TESTING.md).
+For an overview of the manual tests conducted during the development of this project, please refer to the [Manual Testing Document](manual_testing.md).
+
 
 ## Deployment
 
