@@ -25,7 +25,13 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = config('SECRET_KEY')
 # SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
-ALLOWED_HOSTS = ['8000-annierho7-mindfulvibes-2iahnkmpya6.ws.codeinstitute-ide.net', '.herokuapp.com']
+ALLOWED_HOSTS = [
+    (
+        '8000-annierho7-mindfulvibes-'
+        '2iahnkmpya6.ws.codeinstitute-ide.net'
+    ),
+    '.herokuapp.com',
+]
 
 # Application definition
 INSTALLED_APPS = [
@@ -91,9 +97,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mindful_vibes.wsgi.application'
 
 DATABASES = {
-    'default': dj_database_url.parse(config('DATABASE_URL', default='postgres://localhost'))
+    'default': dj_database_url.parse(
+        config('DATABASE_URL', default='postgres://localhost')
+    )
 }
-
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeinstitute-ide.net/",
     "https://*.herokuapp.com"
@@ -102,11 +109,32 @@ CSRF_TRUSTED_ORIGINS = [
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
+    {
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'UserAttributeSimilarityValidator'
+        )
+    },
+    {
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'MinimumLengthValidator'
+        )
+    },
+    {
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'CommonPasswordValidator'
+        )
+    },
+    {
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'NumericPasswordValidator'
+        )
+    },
 ]
+
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
@@ -153,12 +181,16 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Email configuration
-EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+EMAIL_BACKEND = config(
+    'EMAIL_BACKEND',
+    default='django.core.mail.backends.smtp.EmailBackend'
+)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool, default=True)
 EMAIL_PORT = config('EMAIL_PORT', cast=int, default=587)
 EMAIL_HOST = config('EMAIL_HOST', default='smtp.gmail.com')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default=config('EMAIL_HOST_USER'))
-  
-
+DEFAULT_FROM_EMAIL = config(
+    'DEFAULT_FROM_EMAIL',
+    default=config('EMAIL_HOST_USER')
+)

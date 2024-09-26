@@ -12,34 +12,37 @@ from user_profile.models import UserProfile
 # Create your views here.
 
 class PostList(generic.ListView):
+    """
+    View to display a paginated list of published blog posts.
+    """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'blog/blog_list.html'
     paginate_by = 6
 
+
 def home(request):
+    """
+    View to display the homepage with featured blog posts.
+    """
     featured_posts = Post.get_featured_posts()
     return render(request, 'index.html', {'featured_posts': featured_posts})
+
 
 def post_detail(request, slug):
     """
     Display an individual blog post along with its comments.
     """
-    # Get the post object
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
 
-    # Get all comments related to the post
     comments = post.comments.all().order_by("-created_on")
-    
-    # Get the count of approved comments
+
     comment_count = post.comments.filter(approved=True).count()
-    
-    # Initialize an empty comment form
+
     comment_form = CommentForm()
 
     if request.method == "POST":
-        # Handle the comment submission
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
@@ -50,7 +53,7 @@ def post_detail(request, slug):
                 request, messages.SUCCESS,
                 'Comment submitted and awaiting approval.'
             )
-            # Redirect to the same page to avoid duplicate submissions
+
             return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
     return render(
@@ -71,8 +74,6 @@ def comment_edit(request, slug, comment_id):
     """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
-    
-
     comment = get_object_or_404(Comment, pk=comment_id)
 
     if comment.author != request.user:
@@ -98,9 +99,10 @@ def comment_edit(request, slug, comment_id):
         'comment': comment
     })
 
+
 def comment_delete(request, slug, comment_id):
     """
-    View to delete comment
+    View to delete comment.
     """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
@@ -108,13 +110,25 @@ def comment_delete(request, slug, comment_id):
 
     if comment.author == request.user:
         comment.delete()
-        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+        messages.add_message(
+            request,
+            messages.SUCCESS,
+            'Comment deleted!'
+        )
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(
+            request,
+            messages.ERROR,
+            'You can only delete your own comments!'
+        )
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
 def subscribe(request):
+    """
+    View to handle email subscriptions.
+    """
     if request.method == 'POST':
         email = request.POST.get('email')
         if email:
@@ -128,13 +142,24 @@ def subscribe(request):
             messages.error(request, 'Please provide a valid email address.')
     return redirect('home')
 
-def user_profile_view(request, username):
 
+def user_profile_view(request, username):
+    """
+    View to display a user's public profile by their username.
+    """
     user_profile = get_object_or_404(UserProfile, user__username=username)
-    return render(request, 'user_profile/view_user_profile.html', {'user_profile': user_profile})
+
+    return render(
+        request,
+        'user_profile/view_user_profile.html',
+        {'user_profile': user_profile}
+    )
 
 
 def create_post(request):
+    """
+    View to handle the creation of a new blog post by the user.
+    """
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -150,24 +175,56 @@ def create_post(request):
 
 
 def edit_post(request, post_id):
+    """
+    View to edit an existing blog post by the author.
+    """
     post = get_object_or_404(Post, id=post_id)
-    
+
     if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES, instance=post)
+        form = PostForm(
+            request.POST,
+            request.FILES,
+            instance=post
+        )
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your post has been updated successfully.')
+            messages.success(
+                request,
+                'Your post has been updated successfully.'
+            )
             return redirect('user_profile')
         else:
-            messages.error(request, 'Please correct the errors below.')
+            messages.error(
+                request,
+                'Please correct the errors below.'
+            )
     else:
         form = PostForm(instance=post)
 
-    return render(request, 'blog/edit_post.html', {'form': form, 'post': post})
+    return render(
+        request,
+        'blog/edit_post.html',
+        {'form': form, 'post': post}
+    )
+
 
 def delete_post(request, post_id):
+    """
+    View to delete an existing blog post by the author.
+    """
     post = get_object_or_404(Post, id=post_id)
+
     if request.method == 'POST':
         post.delete()
-        return redirect(reverse('view_user_profile', kwargs={'username': request.user.username}))
-    return render(request, 'blog/post_confirm_delete.html', {'post': post})
+        return redirect(
+            reverse(
+                'view_user_profile',
+                kwargs={'username': request.user.username}
+            )
+        )
+
+    return render(
+        request,
+        'blog/post_confirm_delete.html',
+        {'post': post}
+    )

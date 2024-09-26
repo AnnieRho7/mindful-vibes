@@ -26,47 +26,61 @@ body {
     background-color: #ffffff;
 }
 
-/* Navbar Background Color (Same as Footer's Yellow) */
+/* Navbar */
 .custom-navbar {
-    background-color: #FFDD00; /* Yellow background */
+    background-color: #131415;
+    margin-bottom: 2px;
 }
 
-/* Logo Styling: Roboto font, bold, and white color */
 .navbar-brand .brand {
-    font-family: 'Roboto', sans-serif; /* Roboto font */
-    font-weight: bold; /* Bold text */
-    color: white; /* White color for logo */
-    font-size: 24px; /* Adjust size if needed */
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 24px;
+    letter-spacing: 2px;
 }
 
-/* Navbar Links: White and not blue */
 .custom-navbar .nav-link {
-    color: white !important; /* Ensure links are white */
-    font-weight: 400; /* Normal weight for links */
-    text-transform: capitalize; /* Capitalize the first letter */
+    position: relative;
+    color: white !important;
+    font-weight: 400;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 8px 12px;
 }
 
-/* Navbar Links Hover Effect */
+.custom-navbar .nav-link::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover::after,
+.custom-navbar .nav-link:focus::after,
+.custom-navbar .nav-link.active::after {
+    transform: scaleX(1);
+}
+
 .custom-navbar .nav-link:hover {
-    color: #FFD700; /* Slightly lighter yellow for hover effect */
+    color: #FFD700;
 }
 
-/* Active Link Styling */
 .custom-navbar .nav-link.active {
-    color: #FFC107; /* Active link color, similar to your footer gradient */
+    color: #FFC107;
     font-weight: bold;
 }
 
-/* Mobile Menu Toggler Icon */
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
 }
-
-/* Make Sure There's Padding on Navbar Links for Better Clickability */
-.navbar-nav .nav-item .nav-link {
-    padding: 8px 12px; /* Adjust padding as needed */
-}
-
 
 /* Card */
 .card {
@@ -132,6 +146,12 @@ body {
     background: #FF6F61;
     transform: skew(15deg);
     z-index: 100;
+}
+
+.navbar-text {
+    color: #6c757d;
+    margin-right: 20px;
+    font-size: small;
 }
 
 /* Card Styles */
@@ -535,6 +555,7 @@ body {
 
 /* Footer */
 .footer {
-    background: radial-gradient(circle, #FF6F61, #FFC107); /* Radial gradient */
+    /* background: radial-gradient(circle, #FF6F61, #FFC107); */
+    background-color: #131415;
     padding: 20px 0;
 }

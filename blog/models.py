@@ -8,26 +8,18 @@ STATUS = (
     (2, "Pending Approval"),
 )
 
+
 class Post(models.Model):
     """
     Model representing a blog post.
-
-    Attributes:
-        title (str): The title of the post, must be unique.
-        slug (str): A URL-friendly version of the title, must be unique.
-        author (User): The author of the post, linked to the User model.
-        featured_image (CloudinaryField): The featured image for the post.
-        content (str): The main content of the post.
-        created_on (datetime): The date and time the post was created.
-        status (int): The status of the post, defined by STATUS choices.
-        approved (bool): A flag indicating whether the post is approved.
-        excerpt (str): A short summary of the post, can be blank.
-        updated_on (datetime): The date and time the post was last updated.
-        featured (bool): A flag indicating whether the post is featured.
     """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="blog_posts"
+    )
     featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
@@ -46,18 +38,15 @@ class Post(models.Model):
     @classmethod
     def get_featured_posts(cls):
         """Class method to get featured posts."""
-        return cls.objects.filter(status=1, featured=True).order_by('-created_on')[:3]
-    
+        return cls.objects.filter(
+            status=1,
+            featured=True
+        ).order_by('-created_on')[:3]
+
+
 class Comment(models.Model):
     """
     Model representing a comment on a blog post.
-
-    Attributes:
-        post (Post): The post that this comment belongs to.
-        author (User): The author of the comment, linked to the User model.
-        body (str): The content of the comment.
-        approved (bool): A flag indicating whether the comment is approved.
-        created_on (datetime): The date and time the comment was created.
     """
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments"
@@ -79,9 +68,6 @@ class Comment(models.Model):
 class Subscriber(models.Model):
     """
     Model representing a subscriber's email for newsletters or updates.
-
-    Attributes:
-        email (str): The email address of the subscriber, must be unique.
     """
     email = models.EmailField(unique=True)
 
