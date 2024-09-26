@@ -27,11 +27,18 @@ A live version of the site can be found [here](https://mindful-vibes-4dd2a43e1ec
   3. View comments on individual posts.
 
 * As a website superuser, I can:
-  1. View and manage comments on posts.
-  2. Create draft posts to complete later.
-  3. Update the About page content.
-  4. Create, read, update, and delete posts.
-  5. Approve or disapprove comments to filter inappropriate content.
+   - Approve or disapprove comments, which are displayed along with the post and author in the admin dashboard.
+   - Filter comments based on approval status and creation date.
+   - Search comments by their body content or the author's username.
+   - Save posts as drafts using the `status` field, which can later be updated to 'published' when ready.
+   - Filter posts based on their status (draft or published) and approval status.
+   - Edit and update the content of the About page using the Summernote editor for rich text formatting.
+   - Create new posts with fields such as title, slug, content, featured image, and excerpt.
+   - Edit existing posts and update their content or other details like title, slug, or approval status.
+   - Delete posts as needed.
+   - Search for posts by title or content.
+   - Moderate comments by approving or disapproving them, allowing only appropriate content to be displayed.
+
 
 ### Agile Methodology
 

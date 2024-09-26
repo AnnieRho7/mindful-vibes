@@ -527,10 +527,9 @@ body {
 .alert {
     margin: 0;
     padding: 1rem;
-    background-color: #E84610;
-    color: #ffffff;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    background-color: #f7d674;
 }
 
 .alert-banner.show .alert {
@@ -548,14 +547,35 @@ body {
 .alert .btn-close:hover {
     opacity: 1;
 }
-/* Spacer to push content below the banner */
+
 .spacer {
     height: 30px;
 }
 
 /* Footer */
 .footer {
-    /* background: radial-gradient(circle, #FF6F61, #FFC107); */
     background-color: #131415;
-    padding: 20px 0;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
+
+.footer p {
+    margin: 0;
+    font-size: 0.8rem;
+    padding-left: 1rem;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    padding-right: 1rem;
+}
+
+.social-icon {
+    margin-left: 5px;
+    font-size: 1.5rem;
+}
+
