@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* General Styles */
 body {
     background-color: #ffffff;
@@ -102,10 +108,10 @@ body {
 }
 
 /* Scale */
-.scale {
+/* .scale {
     width: 100%;
     height: auto;
-}
+} */
 
 /* Author */
 .author {
@@ -244,7 +250,7 @@ body {
 }
 
 /* Additional Styling */
-.faded {
+/* .faded {
     color: rgb(172, 175, 175);
 }
 
@@ -266,7 +272,7 @@ body {
 .col-md-8 {
     padding-left: 15px;
     padding-right: 15px;
-}
+} */
 
 /* Hero Section */
 .hero-section {
@@ -320,7 +326,7 @@ body {
 
 .featured-posts .card-title {
     font-size: 1.25rem;
-    color: #4A4A4F; /* Existing color for card titles */
+    color: #4A4A4F;
 }
 
 .featured-posts .card-text {
@@ -356,7 +362,7 @@ body {
 }
 
 /* Form Inline Styles */
-.form-inline .form-control {
+/* .form-inline .form-control {
     border-radius: 0;
 }
 
@@ -369,8 +375,10 @@ body {
 .form-inline .btn-primary:hover,
 .form-inline .btn-primary:active {
     background-color: #FFC107;
+} */
+.h1 title {
+    font-size: 6vh;
 }
-
 /* About Page */
 .about-img {
     width: 100%;
@@ -488,7 +496,7 @@ body {
 }
 
 /* Overlay styles */
-.overlay {
+/* .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -503,14 +511,14 @@ body {
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
-}
+} */
 
 /* Title styles */
-.title {
-    font-size: 4rem;
+/* .title {
+    font-size: 8vh;
     margin: 0;
     z-index: 1;
-}
+} */
 
 /* Alert Banner */
 .alert-banner {
@@ -556,10 +564,6 @@ body {
 .footer {
     background-color: #131415;
     padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
 }
 
 .footer p {
@@ -576,6 +580,6 @@ body {
 
 .social-icon {
     margin-left: 5px;
-    font-size: 1.5rem;
+    font-size: 3rem;
 }
 

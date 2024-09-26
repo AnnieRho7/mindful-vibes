@@ -81,3 +81,7 @@ def view_user_profile(request, username):
         'user_profile': user_profile,
         'user': user
     })
+
+
+def custom_404_view(request, exception):
+    return render(request, '404.html', status=404)
