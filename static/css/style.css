@@ -28,7 +28,8 @@ body {
 
 /* Navbar */
 .custom-navbar {
-    background-color: #000000;
+    background-color: #131415;
+    margin-bottom: 2px;
 }
 
 .navbar-brand .brand {
@@ -554,6 +555,7 @@ body {
 
 /* Footer */
 .footer {
-    background: radial-gradient(circle, #FF6F61, #FFC107); /* Radial gradient */
+    /* background: radial-gradient(circle, #FF6F61, #FFC107); */
+    background-color: #131415;
     padding: 20px 0;
 }
