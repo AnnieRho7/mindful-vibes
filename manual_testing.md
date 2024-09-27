@@ -9,12 +9,11 @@
 | Register a user with invalid data | Request fails, form loads again with data and errors                  | ✅ PASS          |
 | Login a user with valid data      | Request is successful, user is logged in                              | ✅ PASS          |
 | Login a user with invalid data    | Request fails, form loads again with data and errors                  | ✅ PASS          |
-| View User Profile                 | User profile page loads with correct user information                 |                   |
+| View User Profile                 | User profile page loads with correct user information                 | ✅ PASS          |
 | Edit UserProfile with valid data  | Request is successful, user profile is updated, message is shown      | ✅ PASS          |
-| Edit UserProfile with invalid data| Request fails, form loads again with data and errors                  |                   |
 | Open a blog post                  | Blog post detail page loads with the correct template and data        | ✅ PASS          |
 | Create a post with valid data     | Request is successful, blog post is created, and user is redirected   | ✅ PASS          |
-| Create a post with invalid data   | Request fails, form loads again with data and errors                  |                  |
+| Create a post with invalid data   | Request fails, form loads again with data and errors                  | ✅ PASS          |
 | Edit a blog post                  | Request is successful, blog post is updated, and user is redirected   | ✅ PASS          |
 | Delete a blog post                | Request is successful, blog post is deleted, and user is redirected   | ✅ PASS          |
 | **Commenting**                    |                                                                       |                   |

@@ -219,8 +219,8 @@ def delete_post(request, post_id):
         messages.success(request, 'Your post has been deleted successfully.')
         return redirect(
             reverse(
-                'user_profile',  # Make sure this matches your URL configuration
-                kwargs={'username': request.user.username}  # Ensure this username is correct
+                'user_profile',
+                kwargs={'username': request.user.username}
             )
         )
 
