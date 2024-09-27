@@ -4,7 +4,8 @@ Mindful Vibes is a wellness blog focused on mental health, balance, and stress m
 
 ## Live Site
 
-A live version of the site can be found [here](https://mindful-vibes-4dd2a43e1ec5.herokuapp.com/)  
+A live version of the site can be found [here](https://mindful-vibes-4dd2a43e1ec5.herokuapp.com/)
+
 ![Mindful Vibes Responsivness](readme-images/amirespon.png)
 
 ## User Experience - UX
