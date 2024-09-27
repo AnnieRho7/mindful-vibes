@@ -1,6 +1,6 @@
 # Mindful Vibes
 
-Mindful Vibes is a wellness blog focused on mental health, balance, and stress management. It provides a space for users to read articles on various wellness topics and interact by commenting on posts. The blog aims to foster a supportive community where users can engage in meaningful discussions about mental well-being.
+Mindful Vibes is a wellness blog focused on over all health. It provides a space for users to read articles on various wellness topics and interact by commenting on posts. The blog aims to foster a supportive community where users can engage in meaningful discussions about mental well-being.
 
 ## Live Site
 
@@ -193,7 +193,7 @@ The Entity-Relationship Diagram below illustrates the database structure and rel
 
 * Superusers manage posts and categories through the admin panel.
 
-![Admin Backend](documentation/images/admin.png)
+![Admin Backend](readme-images/admin.png)
 
 ## Known Bugs and Limitations
 
@@ -221,7 +221,7 @@ When a user deletes a post from their profile, the page currently redirects back
 
 The blog page and text overlay have some responsive design limitations, particularly on smaller screen sizes. The text does not scale optimally with the screen size.
 
-![Blog Page Responsiveness Issue](./readme-images/blog-responsiveness.png)
+![Blog Page Responsiveness Issue](readme-images/blog-respon.png)
 
 **Impact**: Medium - Affects user experience on mobile devices.
 
