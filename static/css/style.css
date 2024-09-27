@@ -5,6 +5,7 @@
 }
 
 /* General Styles */
+
 body {
     background-color: #ffffff;
 }
@@ -20,21 +21,21 @@ body {
 }
 
 /* Background Colors */
-.light-bg {
+/* .light-bg {
     background-color: #fff;
 }
 
 .dark-bg {
-    background-color: #131415;
+    background-color: #353535;
 }
 
 .main-bg {
     background-color: #ffffff;
-}
+} */
 
 /* Navbar */
 .custom-navbar {
-    background-color: #131415;
+    background-color: #353535;
     margin-bottom: 2px;
 }
 
@@ -167,13 +168,13 @@ body {
 }
 
 .card-body {
-    color: #4A4A4F;
+    color: #353535;
 }
 
 /* Links */
 .post-link {
     text-decoration: none;
-    color: #445261;
+    color: #353535;
 }
 
 .post-link:hover,
@@ -245,7 +246,7 @@ body {
 
 .link:hover,
 .link:active {
-    color: #445261;
+    color: #353535;
     text-decoration: underline;
 }
 
@@ -303,11 +304,6 @@ body {
     font-weight: bold;
 }
 
-.hero-section h1,
-.hero-section p {
-    margin: 1;
-}
-
 .hero-section .btn-primary {
     background-color: #FFC107;
     border: none;
@@ -326,11 +322,11 @@ body {
 
 .featured-posts .card-title {
     font-size: 1.25rem;
-    color: #4A4A4F;
+    color: #353535;
 }
 
 .featured-posts .card-text {
-    color: #6c757d;
+    color: #353535;
 }
 
 .featured-posts .btn-outline-primary {
@@ -387,7 +383,7 @@ body {
 
 .about-content h2 {
     font-size: 2rem;
-    color: #4A4A4F;
+    color: #353535;
 }
 
 .about-content p {
@@ -404,14 +400,14 @@ body {
 }
 
 .about-form .btn-secondary {
-    background-color: #6c757d;
+    background-color: #353535;
     border: none;
     color: #fff;
 }
 
 .about-form .btn-secondary:hover,
 .about-form .btn-secondary:active {
-    background-color: #5a6268;
+    background-color: #353535;
 }
 
 /* User Profile Page */
@@ -424,7 +420,7 @@ body {
     margin-top: 0;
     margin-bottom: 1rem;
     text-align: center;
-    color: #4A4A4F;
+    color: #353535;
 }
 
 .profile-info img {
@@ -471,13 +467,13 @@ body {
 
 /* Password Reset */
 .password_reset h3 {
-    color: #4A4A4F;
+    color: #353535;
     font-size: 1.8rem;
     font-weight: 700;
 }
 
 .password_reset p {
-    color: #4A4A4F;
+    color: #353535;
     font-size: 1rem;
     line-height: 1.5;
 }
@@ -562,7 +558,7 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #131415;
+    background-color: #353535;
     padding: 10px 0;
 }
 
@@ -581,5 +577,9 @@ body {
 .social-icon {
     margin-left: 5px;
     font-size: 3rem;
+}
+
+.container-fluid {
+    overflow: hidden;
 }
 

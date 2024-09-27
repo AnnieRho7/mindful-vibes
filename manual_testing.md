@@ -9,7 +9,7 @@
 | Register a user with invalid data | Request fails, form loads again with data and errors                  | ✅ PASS          |
 | Login a user with valid data      | Request is successful, user is logged in                              | ✅ PASS          |
 | Login a user with invalid data    | Request fails, form loads again with data and errors                  | ✅ PASS          |
-| View User Profile                 | User profile page loads with correct user information                 |        |
+| View User Profile                 | User profile page loads with correct user information                 |                   |
 | Edit UserProfile with valid data  | Request is successful, user profile is updated, message is shown      | ✅ PASS          |
 | Edit UserProfile with invalid data| Request fails, form loads again with data and errors                  |                   |
 | Open a blog post                  | Blog post detail page loads with the correct template and data        | ✅ PASS          |
