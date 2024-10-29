@@ -1,12 +1,12 @@
 # Mindful Vibes
 
-Mindful Vibes is a wellness blog focused on over all health. It provides a space for users to read articles on various wellness topics and interact by commenting on posts. The blog aims to foster a supportive community where users can engage in meaningful discussions about mental well-being.
+Mindful Vibes is a wellness blog focused on overall health. It provides a space for users to read articles on various wellness topics and interact by commenting on posts. The blog aims to foster a supportive community where users can engage in meaningful discussions about mental well-being.
 
 ## Live Site
 
-A live version of the site can be found [here](https://mindful-vibes-4dd2a43e1ec5.herokuapp.com/)
+A live version of the site can be found [here](https://mindful-vibes-4dd2a43e1ec5.herokuapp.com/).
 
-![Mindful Vibes Responsivness](readme-images/amirespon.png)
+![Mindful Vibes Responsiveness](readme-images/amirespon.png)
 
 ## User Experience - UX
 
@@ -26,7 +26,7 @@ A live version of the site can be found [here](https://mindful-vibes-4dd2a43e1ec
   - Modify or delete my comments.
   - View comments on individual posts.
   - Create new posts with fields such as title, slug, content, featured image, and excerpt.
-  - Edit existing posts and update their content or other details like title, slug
+  - Edit existing posts and update their content or other details like title, slug.
 
 * As a website superuser, I can:
    - Approve or disapprove comments, which are displayed along with the post and author in the admin dashboard.
@@ -38,7 +38,6 @@ A live version of the site can be found [here](https://mindful-vibes-4dd2a43e1ec
    - Delete posts as needed.
    - Search for posts by title or content.
    - Moderate comments by approving or disapproving them, allowing only appropriate content to be displayed.
-
 
 ### Agile Methodology
 
@@ -61,9 +60,8 @@ The chosen color scheme reflects a calming and mindful vibe, aligning with the p
 | **Primary Color**    | `#FF6F61`    | Used for buttons, links, and other key elements      |
 | **Secondary Color**  | `#ffc107`    | Accent color for hover effects and highlights        |
 
-
 ### Fonts
-The site uses Google Fonts for a modern and consistent typography:
+The site uses Google Fonts for modern and consistent typography:
 
 - **Primary Font:** Roboto (used for body text)
 - **Secondary Font:** Lato (used for headings)
@@ -100,7 +98,6 @@ The wireframes below illustrate the initial layout and design for different sect
 
 The wireframes helped in defining the layout and functionality of the site, ensuring a user-friendly experience.
 
-
 ## Entity-Relationship Diagram (ERD)
 
 The Entity-Relationship Diagram below illustrates the database structure and relationships between different entities in our blog system. This ERD serves as a blueprint for our data model, ensuring efficient data management and clear relationships between various components of the system.
@@ -114,7 +111,7 @@ The Entity-Relationship Diagram below illustrates the database structure and rel
 1. **User**
    - Represents registered users of the blog system.
    - Stores essential user information like username and email.
-   - Forms the basis for user authentication and authorisation.
+   - Forms the basis for user authentication and authorization.
 
 2. **UserProfile**
    - Extends the User entity with additional user-specific information.
@@ -216,7 +213,6 @@ When a user deletes a post from their profile, the page currently redirects back
 
 **Impact**: Low - Functionality works, but user experience could be improved.
 
-
 ### Blog Page Responsiveness
 
 The blog page and text overlay have some responsive design limitations, particularly on smaller screen sizes. The text does not scale optimally with the screen size.
@@ -234,7 +230,6 @@ There are some inconsistencies between custom CSS and Bootstrap styles, leading 
 ---
 
 These issues have been identified and documented for future iterations of the project. While they do not significantly impact the core functionality of the blog, addressing them would enhance the overall user experience and code quality.
-
 
 ### Possible Future Features
 
@@ -255,31 +250,15 @@ These issues have been identified and documented for future iterations of the pr
 * [Python](https://www.python.org/)
 * [Django](https://www.djangoproject.com/)
 
-### Django Packages Used
+### Libraries and Frameworks
 
-* [Gunicorn](https://gunicorn.org/) - WSGI server for running your Django application on Heroku.
-* [Cloudinary](https://cloudinary.com/) - For hosting and managing static files and media.
-* [dj-database-url](https://pypi.org/project/dj-database-url/) - Parses database URLs from Heroku environment variables.
-* [psycopg2-binary](https://pypi.org/project/psycopg2-binary/) - PostgreSQL adapter for Python.
-* [django-summernote](https://django-summernote.readthedocs.io/en/latest/) - WYSIWYG text editor for Django applications.
-* [django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html) - Comprehensive authentication and account management.
-* [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - A Django app for beautiful forms styling.
-* [whitenoise](http://whitenoise.evans.io/en/stable/) - Simplifies serving static files in production on Heroku.
-* [django-extensions](https://django-extensions.readthedocs.io/en/latest/) - A collection of custom extensions for Django.
-* [django-cloudinary-storage](https://github.com/cloudinary/django-cloudinary-storage) - Django storage backend for Cloudinary.
-* [crispy-bootstrap5](https://github.com/django-crispy-forms/crispy-bootstrap5) - Bootstrap 5 template pack for crispy-forms.
-
-
-### Frameworks - Libraries - Programs Used
-
+* [Django](https://www.djangoproject.com/)
 * [Bootstrap](https://getbootstrap.com/)
-* [JQuery](https://jquery.com/)
-* [Git](https://git-scm.com/)
-* [GitHub](https://github.com/)
-* [Heroku](https://id.heroku.com)
-* [VSCode](https://code.visualstudio.com/)
-* [Fontawesome](https://fontawesome.com/)
-* [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)
+* [jQuery](https://jquery.com/)
+* [Summernote](https://summernote.org/)
+* [Pillow](https://pillow.readthedocs.io/en/stable/)
+* [Cloudinary](https://cloudinary.com/)
+
 
 ## Development & Testing
 
