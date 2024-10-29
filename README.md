@@ -272,11 +272,11 @@ For an overview of the manual tests conducted during the development of this pro
 
 For detailed validation results, including screenshots from the HTML and PEP 8 validators, please refer to the following document:
 
-- [Validation Screenshots](./validation-screenshots.md)
+- [Validation Screenshots](/validation-screenshots.md)
 
 ### Lighthouse Performance
 
-![Lighthouse Accessibility Score](./readme-images/light-house.png)
+![Lighthouse Accessibility Score](/readme-images/light-house.png)
 
 The blog achieved an accessibility score of 81 out of 100. While this score indicates good accessibility practices, there's room for improvement, particularly in the area of color contrast.
 
