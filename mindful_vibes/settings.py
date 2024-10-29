@@ -24,12 +24,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # Security settings
 SECRET_KEY = config('SECRET_KEY')
 # SECRET_KEY = os.environ.get('SECRET_KEY')
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = [
-    (
-        '8000-annierho7-mindfulvibes-'
-        '2iahnkmpya6.ws.codeinstitute-ide.net'
-    ),
+    '8000-annierho7-mindfulvibes-ncqqejxzubn.ws.codeinstitute-ide.net',  # Correctly add the host
     '.herokuapp.com',
 ]
 
