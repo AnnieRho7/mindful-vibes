@@ -41,7 +41,29 @@ A live version of the site can be found [here](https://mindful-vibes-4dd2a43e1ec
 
 ### Agile Methodology
 
-The Agile Methodology was used to plan this project, utilizing GitHub’s Project Board. You can view the project board [here](https://github.com/users/AnnieRho7/projects/2).
+This project was developed using agile methodologies, focusing on delivering small features in incremental sprints. I used GitHub's Project Board as my primary project management tool, which you can view [here](https://github.com/users/AnnieRho7/projects/2).
+
+#### Project Management
+- **User Stories**: Created and managed through GitHub Issues
+- **Kanban Board**: Used the following columns:
+  - Todo: Stories ready to be worked on
+  - In Progress: Currently being developed
+  - Done: Completed features
+
+#### Prioritisation
+Stories were prioritised using the MoSCoW method:
+- Must Have: Core features (authentication, blog posts)
+- Should Have: Important but not crucial features (comments, likes)
+- Could Have: Desired but not necessary features (user profiles)
+- Won't Have: Future enhancement possibilities
+
+#### Example Epic and User Story
+Epic: Blog Management
+- User Story: As a blog admin, I can create and edit posts
+- Acceptance Criteria:
+  - Can create new posts with title and content
+  - Can upload featured images
+  - Can save posts as drafts
 
 ### The Scope
 
