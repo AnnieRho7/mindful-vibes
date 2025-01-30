@@ -33,42 +33,54 @@ def home(request):
 def post_detail(request, slug):
     """
     Display an individual blog post along with its comments.
+    Handles visibility based on user role (author, superuser, or regular user).
     """
-    queryset = Post.objects.all()  # Check all posts, not just the published ones
+    queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
+    
+    # Check if user can view the post (author, superuser, or approved post)
+    is_author = request.user == post.author
+    is_superuser = request.user.is_superuser
+    is_published = post.status == 1 and post.approved
 
-    # Check if the post is published and approved
-    if post.status != 1 or not post.approved:
-        messages.info(request, 'This post is awaiting approval and is not yet visible to the public.')
-        return redirect('home')  # Redirect to the homepage or another appropriate page
+    # If user is not author or superuser, and post isn't published, redirect
+    if not (is_author or is_superuser or is_published):
+        messages.info(request, 'This post is awaiting approval.')
+        return redirect('home')
 
-    comments = post.comments.all().order_by("-created_on")
+    # Get approved comments for regular users, all comments for author/superuser
+    if is_author or is_superuser:
+        comments = post.comments.all().order_by("-created_on")
+    else:
+        comments = post.comments.filter(approved=True).order_by("-created_on")
+    
     comment_count = post.comments.filter(approved=True).count()
     comment_form = CommentForm()
 
     if request.method == "POST":
+        if not request.user.is_authenticated:
+            messages.error(request, 'Please log in to comment.')
+            return redirect('login')
+            
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.author = request.user
             comment.post = post
             comment.save()
-            messages.add_message(
-                request, messages.SUCCESS,
-                'Comment submitted and awaiting approval.'
-            )
+            messages.success(request, 'Comment submitted and awaiting approval.')
             return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
-    return render(
-        request,
-        "blog/post_detail.html",
-        {
-            "post": post,
-            "comments": comments,
-            "comment_count": comment_count,
-            "comment_form": comment_form,
-        },
-    )
+    context = {
+        "post": post,
+        "comments": comments,
+        "comment_count": comment_count,
+        "comment_form": comment_form,
+        "is_author": is_author,
+        "is_superuser": is_superuser
+    }
+
+    return render(request, "blog/post_detail.html", context)
 
 
 def comment_edit(request, slug, comment_id):
